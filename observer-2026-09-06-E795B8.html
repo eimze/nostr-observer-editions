@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Nostr Observer — Sunday, September 6, 2026 — No. E795B8</title>
+<style>
+/* GENERATED FILE - do not edit. Source: generator/src/main/resources/house.css
+   Regenerate: tools/sync-skill.sh */
+/* The Nostr Observer — house stylesheet.
+ *
+ * Tokens and primitives, not a layout. The generator composes the page out of
+ * these each morning; the point of the file is that it never has to reinvent a
+ * palette, a type scale, or the dark-theme handling.
+ *
+ * THEMES: three states, not two. An explicit choice stamps data-theme on <html>;
+ * the default "system" setting stamps nothing, so prefers-color-scheme is the
+ * only separator. Every colour is defined on bare :root first and only
+ * REDEFINED in the other two blocks — a colour whose sole definition sits behind
+ * a media query renders one theme's text on the other theme's ground.
+ */
+
+:root {
+  --paper: #FAF8F3;
+  --paper-2: #F2EFE8;
+  --ink: #16121B;
+  --ink-2: #4C4553;
+  --ink-3: #6E6675;
+  --rule: #C8C1CC;
+  --rule-soft: #E0DAE2;
+  --accent: #57277F;
+  --spot: #9C2B24;
+  --reverse-bg: #16121B;
+  --reverse-ink: #F5F1EC;
+  --reverse-ink-2: #A79DB0;
+  --reverse-spot: #E38375;
+
+  --serif: "Times New Roman", Times, "Liberation Serif", "Nimbus Roman", serif;
+  --body: Georgia, "Liberation Serif", "Times New Roman", Times, serif;
+  --util: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #131017;
+    --paper-2: #1B1721;
+    --ink: #EDE7E0;
+    --ink-2: #B4ABBB;
+    --ink-3: #928A99;
+    --rule: #3B3444;
+    --rule-soft: #2A2432;
+    --accent: #C6A2E8;
+    --spot: #E38375;
+    --reverse-bg: #241E2E;
+    --reverse-ink: #F3EEEA;
+    --reverse-ink-2: #B0A5BC;
+  --reverse-spot: #E38375;
+    --reverse-spot: #E38375;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #131017;
+  --paper-2: #1B1721;
+  --ink: #EDE7E0;
+  --ink-2: #B4ABBB;
+  --ink-3: #928A99;
+  --rule: #3B3444;
+  --rule-soft: #2A2432;
+  --accent: #C6A2E8;
+  --spot: #E38375;
+  --reverse-bg: #241E2E;
+  --reverse-ink: #F3EEEA;
+  --reverse-ink-2: #B0A5BC;
+}
+
+* { box-sizing: border-box; }
+
+/* An explicit background: the viewer paints its own ground behind the page, so
+ * a transparent body silently borrows the host's theme. */
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* THE FOLIO GOES ON TOP, wherever the writer put it.
+ *
+ * A folio is the thin line of standing detail a newspaper sets ABOVE its
+ * nameplate -- volume and number, the date, the price. Printed below it
+ * instead, it stops being a folio and becomes a block of metadata standing
+ * between the reader and the first headline, and on a phone that block is
+ * eight lines deep and pushes the lead off the screen.
+ *
+ * The prompt asks for it on top, but placement is markup and the prompt is
+ * advice; one edition put it there and the next did not. `order: -1` settles
+ * it in the stylesheet, and costs nothing on an edition that already had it
+ * right. */
+.sheet { max-width: 1240px; margin: 0 auto; padding: 20px 22px 72px; display: flex; flex-direction: column; }
+.sheet > .folio { order: -1; }
+
+/* --- type ------------------------------------------------------------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+p { margin: 0; }
+a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.kicker {
+  font-family: var(--util); font-size: .72rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+.byline {
+  font-family: var(--util); font-size: .72rem; letter-spacing: .11em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.dek { font-size: .95rem; line-height: 1.45; color: var(--ink-2); font-style: italic; }
+.note { font-size: .8rem; line-height: 1.45; color: var(--ink-3); font-style: italic; }
+
+.lead-head { font-size: clamp(1.9rem, 3.1vw, 2.7rem); }
+.main-head { font-size: clamp(1.6rem, 2.5vw, 2.15rem); }
+.sub-head  { font-size: 1.28rem; }
+.small-head { font-size: 1.02rem; }
+
+/* --- masthead --------------------------------------------------------- */
+
+.masthead {
+  border-top: 5px solid var(--ink); border-bottom: 1px solid var(--ink);
+  padding: 18px 0 12px; text-align: center;
+}
+.masthead h1 {
+  font-size: clamp(2.3rem, 7.6vw, 5.1rem);
+  letter-spacing: .015em; text-transform: uppercase; line-height: .92;
+}
+.masthead .the {
+  font-size: .44em; display: block; letter-spacing: .42em;
+  margin-bottom: .28em; text-indent: .42em; color: var(--ink-2);
+}
+.motto {
+  margin-top: 14px; font-family: var(--util); font-size: .7rem;
+  letter-spacing: .28em; text-transform: uppercase; color: var(--ink-3);
+}
+/* Three columns, and the middle one is CENTRED on the page.
+ *
+ * `space-between` was the obvious way to set these rows and it is subtly the
+ * wrong one: it centres the middle span only when the two beside it happen to
+ * be the same width, so the date drifts left or right by whatever the window
+ * stamp and the voice count weigh that morning. A `1fr auto 1fr` grid pins it
+ * to the centre of the sheet, under the middle of the nameplate, whatever sits
+ * either side -- including nothing at all, which is the case for the folio's
+ * right-hand slot today. */
+.folio, .dateline {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 3px 12px; align-items: baseline;
+  font-family: var(--util); font-size: .7rem; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.folio > :nth-child(2), .dateline > :nth-child(2) { text-align: center; }
+.folio > :nth-child(3), .dateline > :nth-child(3) { text-align: right; }
+
+/* A row of two is centre-and-right, not left-and-centre.
+ *
+ * The folio's left slot is empty -- there is no volume number and no cover
+ * price -- so the row carries two spans where the grid expects three, and by
+ * source order they would land in columns one and two. Written this way, the
+ * markup stays free of an empty `<span>` whose only job is to push the next
+ * one along, and the date still sits under the middle of the nameplate. */
+.folio > :first-child:nth-last-child(2) { grid-column: 2; text-align: center; }
+.folio > :nth-child(2):nth-last-child(1) { grid-column: 3; text-align: right; }
+
+/* COLLAPSE WHEN IT MUST, AND NOT ONE PIXEL SOONER.
+ *
+ * These rows used to stack below 720px along with the columns, because that is
+ * where everything else on the page breaks. Measured, they had no need to: the
+ * dateline's three spans hold one line down to 528px and the folio's two down
+ * to 364px, so the shared breakpoint was stacking the dateline 190px early and
+ * the folio 350px early -- three lines of standing detail on a screen with room
+ * for one.
+ *
+ * So they get their own breakpoints, one each, set just under what they
+ * measure. The folio's is below any phone in circulation, which is the point:
+ * it is there for a 320px screen, not for a 390px one. Stacked, they centre --
+ * the same symmetry the nameplate has, with the centred span still centred.
+ */
+/* Below the fold, the outer tracks stop paying for each other.
+ *
+ * `1fr auto 1fr` centres exactly, and it does it by making the right-hand track
+ * as wide as the left -- so "234 voices", which needs 69px, reserves the 170px
+ * that "Ranked as Vitor Pamplona" needs beside it. That is a hundred wasted
+ * pixels, and it is why a row whose text measures 400px was breaking at 528.
+ *
+ * On a phone the page is one column and there is no nameplate centre to line up
+ * against pixel-for-pixel, so the tracks size to their contents and the middle
+ * span is centred in what is left. The row then holds one line to about 430px
+ * instead of 528. Above this the exact version is back. */
+@media (max-width: 720px) {
+  .dateline { grid-template-columns: auto 1fr auto; }
+}
+
+@media (max-width: 430px) {
+  .dateline { grid-template-columns: 1fr; text-align: center; }
+  .dateline > :nth-child(3) { text-align: center; }
+}
+
+@media (max-width: 380px) {
+  .folio { grid-template-columns: 1fr; text-align: center; }
+  .folio > :first-child:nth-last-child(2), .folio > :nth-child(2):nth-last-child(1) {
+    grid-column: 1; text-align: center;
+  }
+}
+
+.folio { padding-bottom: 8px; }
+.dateline { border-bottom: 3px double var(--ink); padding: 7px 0; color: var(--ink-2); }
+
+/* --- columns ---------------------------------------------------------- */
+
+.fold { display: grid; grid-template-columns: repeat(12, 1fr); border-bottom: 3px double var(--ink); }
+.col { padding: 20px; border-left: 1px solid var(--rule); }
+.col:first-child { padding-left: 0; border-left: 0; }
+.col:last-child { padding-right: 0; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; }
+.span-8 { grid-column: span 8; }
+.span-12 { grid-column: span 12; }
+
+.band { border-bottom: 1px solid var(--ink); padding: 22px 0 26px; }
+.band-head {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+  border-bottom: 1px solid var(--ink); padding-bottom: 6px;
+}
+.band-head h2 { font-size: 1.05rem; letter-spacing: .2em; text-transform: uppercase; }
+.cols2 { display: grid; grid-template-columns: repeat(2, 1fr); }
+.cols3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+.cols4 { display: grid; grid-template-columns: repeat(4, 1fr); }
+.cell { padding: 0 18px; border-left: 1px solid var(--rule-soft); display: flex; flex-direction: column; gap: 9px; }
+.cell:first-child { padding-left: 0; border-left: 0; }
+.cell:last-child { padding-right: 0; }
+
+/* --- stories ---------------------------------------------------------- */
+
+.story { display: flex; flex-direction: column; gap: 9px; }
+.story + .story { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--rule-soft); }
+.story p { font-size: .925rem; line-height: 1.52; hyphens: auto; }
+.story p.first::first-letter {
+  float: left; font-family: var(--serif); font-weight: 700; font-size: 3.1em;
+  line-height: .79; padding: .05em .09em 0 0; color: var(--accent);
+}
+
+/* --- art -------------------------------------------------------------- */
+
+figure { margin: 0; display: flex; flex-direction: column; gap: 7px; }
+figure img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); background: var(--paper-2); }
+figcaption { font-style: italic; font-size: .82rem; line-height: 1.4; color: var(--ink-2); }
+figcaption .credit {
+  font-family: var(--util); font-style: normal; font-size: .7rem;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3);
+  display: block; margin-top: 4px;
+}
+
+/* --- boxes ------------------------------------------------------------ */
+
+.box {
+  border: 1px solid var(--ink); padding: 14px 15px; background: var(--paper-2);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.box-head {
+  font-family: var(--util); font-size: .72rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; border-bottom: 1px solid var(--ink); padding-bottom: 7px;
+}
+.wire-item { padding: 11px 0; border-bottom: 1px dotted var(--rule); }
+.wire-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.wire-item p { font-size: .85rem; line-height: 1.45; color: var(--ink-2); }
+
+blockquote { margin: 0; font-family: var(--serif); font-size: 1.22rem; line-height: 1.24; }
+q { quotes: "“" "”"; }
+
+/* Reverse panel — for the one thing on the page that should stop the reader.
+ *
+ * IT IS DARK IN BOTH THEMES, which is why it gets its own accent. `--spot` is
+ * tuned against the PAGE's ground, so in the light theme it is a deep red for
+ * cream paper — and printing that on the reverse panel's near-black put the
+ * kicker at 2.45:1, on every story that had one. Measured, not noticed: it
+ * reads as "small red caps" until you check it. */
+.reverse { background: var(--reverse-bg); color: var(--reverse-ink); padding: 26px; }
+.reverse h2, .reverse h3 { color: var(--reverse-ink); }
+.reverse .dek, .reverse .byline { color: var(--reverse-ink-2); }
+.reverse .kicker { color: var(--reverse-spot); }
+
+/* --- data ------------------------------------------------------------- */
+
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px dotted var(--rule); font-size: .83rem; }
+th {
+  font-family: var(--util); font-size: .7rem; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-3); border-bottom: 1px solid var(--ink);
+}
+td.num { text-align: right; padding-right: 0; font-family: var(--mono); font-size: .78rem; }
+
+/* --- responsive ------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .span-3, .span-4, .span-5 { grid-column: span 6; }
+  .cols4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .sheet { padding: 14px 15px 56px; }
+  .fold { display: flex; flex-direction: column; }
+  .col { padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--rule); }
+  .col:last-child { border-bottom: 0; }
+  .cols2, .cols3, .cols4 { display: flex; flex-direction: column; }
+  .cell { padding: 16px 0; border-left: 0; border-top: 1px solid var(--rule-soft); }
+  .cell:first-child { border-top: 0; padding-top: 0; }
+  .reverse { padding: 20px 16px; }
+}
+
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="folio">
+    <span>No. E795B8</span>
+    <span>Sunday, September 6, 2026</span>
+    <span>24h to 09:27</span>
+  </div>
+
+  <header class="masthead">
+    <h1><span class="the">The</span>Nostr Observer</h1>
+    <p class="motto">Printed from one corner of the network</p>
+  </header>
+
+  <div class="dateline">
+    <span>Ranked as EZ</span>
+    <span>677 events, 14 desks</span>
+    <span>218 voices</span>
+  </div>
+
+  <!-- ============================ THE FOLD ============================ -->
+  <div class="fold">
+
+    <div class="col span-7">
+      <div class="story">
+        <p class="kicker">The unglamorous work</p>
+        <h2 class="lead-head">Two years of running the room, and nobody clapped</h2>
+        <p class="dek">Car spent Saturday explaining why they stopped trying to build a Nostr developer community — and what Matthew 10:14 has to do with it.</p>
+        <p class="byline">The lead</p>
+        <p class="first">The most-argued proposition on this network yesterday was not about money or protocol design. It was about who does the boring part, and whether anybody notices. Car opened with a claim and then, unusually, paid for it with an accounting.</p>
+        <blockquote>I believe atp the only way people really adopt new technology is through community work and actually building hubs around it.</blockquote>
+        <p>The accounting: NostrDevs, run in Austin for two years straight from the end of 2022 — a place for developers to learn, build and meet each other — plus a Nostr development course put on Udemy and a pile of resources meant to make it easier for whoever came next. <q>It was entirely self funded and really was a group effort between developers and plebs alike.</q></p>
+        <p>What did not happen is the part they wanted to talk about. <q>What was always strange to me was how little of that community work was amplified by the wider Nostr ecosystem at the time.</q> A repost, they suggest, would have been enough to put it in front of one more developer. It mostly did not come. <q>After a while though, it becomes defeating to keep pouring resources into something that the people around it do not seem particularly interested in helping carry forward.</q></p>
+        <p>What lifts this above a complaint is where it lands. Car reads the verse in Matthew where Jesus tells the disciples to shake the dust from their feet at a town that will not receive them, and takes from it something other than grievance.</p>
+        <blockquote>Sometimes you did the work you were supposed to do, gave what you could give, and then you have to recognize when it is time to move on and put that energy somewhere it can actually bear fruit.</blockquote>
+        <p>Their conclusion on the two years: <q>Not everything you are capable of building is something you are supposed to keep carrying forever.</q> The energy now goes to PlebLab, the hackerspace in Austin.</p>
+        <p>Pushed back on later — that Nostr should not have one centre — they conceded the point and kept the argument: <q>decentralized ecosystems still need local hubs and people willing to do the unglamorous community work</q>. Both things, they said, can be true at once.</p>
+      </div>
+
+      <div class="story">
+        <h3 class="sub-head">Two people volunteering anyway</h3>
+        <p>Elsewhere on the same day, without reference to any of it, two answers arrived. Odie 40HPW made a public commitment: <q>Starting from today, I will post every day for 30 days.</q> The stated reason was almost shy — <q>Let's se if this will help Nostr back on it's feet.</q> Day one was fried rice with chicken leftovers, a twenty-minute run and a deadlift.</p>
+        <p>And Five, on what keeps anyone here at all: <q>People still here putting up with rough edges, and devs still grinding on the gears of freedom tech when everyone is in AI psychosis is proof enough for real purpose.</q></p>
+      </div>
+    </div>
+
+    <div class="col span-5">
+      <figure>
+        <img src="https://blossom.primal.net/f68f695bcc0a146d363022f9f2229543f61e570feb0bdee9815a41d0f8430343.png" alt="A screenshot Birinaite filed with their note announcing a music player whose songs are Nostr events.">
+        <figcaption>Filed by Birinaite with the announcement of a music player that has no origin server: tracks are index events pointing at fragments held on relays.<span class="credit">Picture: Birinaite</span></figcaption>
+      </figure>
+      <div class="story">
+        <p class="kicker">Built yesterday</p>
+        <h3 class="main-head">A jukebox with nowhere to put the music</h3>
+        <p>Birinaite spent Saturday evening asking for testers for something genuinely odd. <q>A music player where the songs ARE Nostr events. No server hosting the audio.</q></p>
+        <p>The mechanism, in their own description: <q>there's no bucket, no CDN, no origin server for the audio. A track is an index event pointing at fragment events.</q> The player takes fragments from whichever relay answers first and pushes them into the audio element while the rest is still on its way.</p>
+        <p>Which produces a consequence they were careful to state up front rather than discover later:</p>
+        <blockquote>Which means the "library" isn't mine. It's an open tag on the network. You publish, you're in it. I can't curate it and I can't delete yours — and neither can you, once it's out. Upload accordingly.</blockquote>
+        <p>Playlists are addressable events under the listener's own key, forkable the way a repository is. What they asked for was unglamorous in exactly the way the lead story describes: iPhone testing and upload testing, <q>the parts most likely to be broken in ways I can't see from here</q>.</p>
+      </div>
+      <div class="story">
+        <p class="kicker">The instrument</p>
+        <h3 class="sub-head">One out of four hundred</h3>
+        <p>Yesterday the unranked control read shared six notes with the ranked one. Today it shares one. Four hundred notes an anonymous reader would have seen; a single one of them reached this page.</p>
+        <p class="note">The lens is not filtering harder than usual. The network simply had a day with very little in the middle.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================ EDITS ============================ -->
+  <div class="band">
+    <div class="reverse">
+      <p class="kicker">Protocol</p>
+      <h2 class="main-head">The case against being able to change what you said</h2>
+      <p class="dek">fiatjaf published an argument that Nostr should not support edits. Gigi spent Saturday night marking it up.</p>
+      <p>The proposition is not that edits are hard. It is that they are political. <q>edits are a centralizing force that we should be fighting against, not embracing.</q></p>
+      <p>The supporting case is partly about cost — <q>Edits introduce too much complexity</q> — and partly an appeal to the one piece of infrastructure everybody already uses without complaint:</p>
+      <blockquote>Most famously, email, the most widely used and widespread "social app" out there, does not support edits of any kind.</blockquote>
+      <p>Running alongside it is a smaller heresy about what a client owes you: <q>It's perfectly fine to use Nostr without seeing likes and/or zaps</q>. And a closing line that reads as a plea against building whatever the incumbents built: <q>Let's think about it and not rush towards defeat.</q></p>
+      <p>Reasonable people will disagree, and a reader who has ever posted a typo will disagree loudly. But the argument deserves better than the reflex, and it is worth noting who surfaced it: Gigi marked these passages one after another late on Saturday, which is how they arrived here at all.</p>
+    </div>
+  </div>
+
+  <!-- ============================ WORKSHOP ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>The Workshop</h2>
+      <p class="byline">A Saturday of shipping</p>
+    </div>
+    <div class="cols3">
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="main-head">Twenty-two repositories in a day</h3>
+          <p class="first">Sirius Business Ltd spent Saturday announcing an entire stack on Nostr — twenty-two repository events between mid-morning and the small hours. The bulk of it is Iris: the client, chat, docs, maps, drive, git, boards, contacts, calendar, sites, native and the stack itself.</p>
+          <p>Underneath sit the pieces that make those possible — nostr-double-ratchet, nostr-social-graph, nostr-pubsub, hashtree — and, filed last thing at night, three more: fips, fips-ts and fips-tcp.</p>
+          <p class="note">FIPS, the permissionless mesh network that led this page's technology column yesterday, now has its source announced on the network it routes around.</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">The DMs are encrypted now</h3>
+          <p>TWENTY ONE Companion shipped v1.12.0 one day after v1.11.0, and the release note is a model of how to describe a fix. <q>The last release brought DMs to the phone and said plainly that they were not encrypted. That is what changed.</q></p>
+          <p>The mechanism: <q>A conversation between two members leaves as a gift wrap, and the relay only sees an envelope from a key nobody has ever seen.</q> Metadata is treated honestly rather than waved away — who writes to whom stays visible to other members on one kind of space and not on another, and, in the release's own words, <q>The app says that on the screen rather than promising more than it holds.</q></p>
+          <p>Old chat DMs stay as they were. They were never encrypted, so there was nothing to migrate.</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Also shipped</h3>
+          <p><strong>coinos v3</strong> — a rebuilt self-custodial wallet that spends over Ark, with unilateral exit.</p>
+          <p><strong>Bisq Easy</strong> arrived for Android, and Alex Gleason pushed two new repositories, ditto-browser and tenna.</p>
+          <p><strong>Specter-DIY 1.10.5</strong> hardened its random number generation and transaction handling; Freedom.Tech, counting the day's open-source releases, called it an AI-heavy Sunday — six AI releases against two for Bitcoin and two for privacy.</p>
+        </div>
+        <div class="story">
+          <h3 class="small-head">A dissenting word on Nostr</h3>
+          <p>fiatjaf, testing a key-backup product, told its author to take the protocol out: <q>couldn't stop thinking that Nostr is killing the product</q>. Generate keys locally, he suggested, and let people share them however they like.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================ MONEY ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>Money</h2>
+      <p class="byline">Markets · Saturday</p>
+    </div>
+    <div class="cols3">
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="main-head">Both headlines, same afternoon</h3>
+          <p class="first">At two minutes past three the newsbot filed <em>Bitcoin Rallies Over $81,000 — And Brings BTC-Related Stocks With It</em>. In the same minute it filed <em>Bitcoin Dips Below $80,000 on Strong US Jobs Report</em>. Neither is wrong; the week did both.</p>
+          <p>Where it settled: $79,827 at half past ten on Saturday night, with the day's range between $79,388.69 and $79,894.90. Fidelity's contribution to the mood was to say the bear market may not be over.</p>
+          <p>The correlation to watch is not equities. Bitcoin's relationship with gold has hit a six-year high, which is what a debasement trade looks like from the inside.</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Six hundred days behind schedule</h3>
+          <p>ChartsBTC's power-law reading is the least flattering number of the day. Against a trend price of $139,759, the market is 42.85% below trend — or, put in time rather than money, <strong>609 days behind</strong>. The price it is trading at belongs to January 2025.</p>
+          <p>Other measures are calmer. The Mayer multiple sits at 1.15, the 200-week moving average at $64,758, and the four-year return is still 303%.</p>
+          <p>bitcoin.rocks put the same span the other way round: the dollar's purchasing power is down 12.3% over four years. <q>Bitcoin doesn't have inflation. Your money does.</q></p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="box">
+          <p class="box-head">Saturday's dashboard</p>
+          <div class="tablewrap">
+            <table>
+              <tr><th>Reading</th><th>Value</th></tr>
+              <tr><td>Price</td><td class="num">$79,700</td></tr>
+              <tr><td>Sats per dollar</td><td class="num">1,255</td></tr>
+              <tr><td>Hash rate</td><td class="num">896 EH/s</td></tr>
+              <tr><td>Mean tx fee</td><td class="num">$0.42</td></tr>
+              <tr><td>Fee rate</td><td class="num">1 sat/vB</td></tr>
+              <tr><td>Mempool</td><td class="num">2,002</td></tr>
+              <tr><td>Block height</td><td class="num">965,225</td></tr>
+              <tr><td>Mayer multiple</td><td class="num">1.15</td></tr>
+              <tr><td>Blocks to halving</td><td class="num">84,775</td></tr>
+            </table>
+          </div>
+          <p class="note">Clark Moody Dashboard's Morning Coffee report, with the mean fee from ChartsBTC — 528 sats. A second day of one-satoshi blocks.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================ MINING ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>Mining</h2>
+      <p class="byline">Two people at the small end</p>
+    </div>
+    <div class="cols2">
+      <div class="cell">
+        <div class="story">
+          <h3 class="main-head">One block every fifteen thousand years</h3>
+          <p class="first">Trey did the arithmetic on his Bitaxe and published it without flinching. The machine makes 0.5–1 TH/s against a network that had reached a zetahash when he ran the numbers: a daily chance of finding a block of roughly one in five million, or <strong>one expected block every 15,000 years</strong>.</p>
+          <p>His argument is not that you should not own one. It is that you should know what you bought. At 10–15 watts it is a way to learn how mining works and to take part without asking anyone's permission — and if you want bitcoin, point the hashrate at a pool or simply buy some.</p>
+          <p>His closing line is the useful one: <q>Rare solo blocks make great stories, but they shouldn't decide what the machine is for.</q></p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Thirteen per cent more, from a chatbot</h3>
+          <p>aljaz, a decade into Bitcoin and only now touching mining, spent the weekend on firmware: using two language models to improve SparkMiner and <q>squeeze 13% more performance out of my esp32 based nerdminer board</q>.</p>
+        </div>
+        <div class="story">
+          <h3 class="sub-head">And the worry at the big end</h3>
+          <p>Anders asked the question that follows from a shrinking subsidy. As profitability falls, could large miners push for a tail emission to protect their margins — and did the recent fork fight show they hold more sway than plebs are comfortable with?</p>
+          <p>No answer to it surfaced in this window. He spent the rest of the day on a different worry — whether a supply chart he had been shown was even accurate — which is roughly the condition of anyone trying to reason about mining from the outside.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ CIVICS ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>Civics</h2>
+      <p class="byline">Freedom, as proposed by others</p>
+    </div>
+    <div class="cols3">
+      <div class="cell span-8">
+        <div class="story">
+          <h3 class="main-head">A conference about free cities, watched with growing disgust</h3>
+          <p class="first">The Free Cities Conference 2026 ran in Próspera this weekend and was livestreamed. One reader on this page followed it and summarised the first day's talks; another watched enough to lose their temper.</p>
+          <p>Pattern was blunt about a thing they had not attended. <q>despite not having participated in any talk at the "free" cities conference, I still learned one thing. The vision of these guys is unpleasant and messianic.</q></p>
+          <p>The objection sharpened over the afternoon into something specific — that the freedom on offer is freedom for a particular caste to decide things for everyone else: <q>it is disgusting to see that these messianics are only interested in the freedom that allows them to materialize their authoritarian models, where only the viruous caste have the criteria to know what is valid and what is not for the rest of us mortals.</q></p>
+          <p>By evening the temperature had dropped and the self-assessment arrived: <q>Today I feel like a stupidly naive idealistic</q>. It is the most honest sentence anybody filed about the conference.</p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Two platforms, one passport</h3>
+          <p>Aaron of Essex posted a straight comparison with screenshots: <q>Free speech platform X. And nostr One demands you upload government ID to view. The other don't</q>. Asked later which he preferred, he was unsentimental about the incumbent — gaslighting all day, throttled reach, and ads dressed as posts.</p>
+        </div>
+        <div class="story">
+          <h3 class="small-head">The bird is free</h3>
+          <p>Sebastix marked a passage on the trademark ruling against an X rival: <q>However, the court also found that X had likely abandoned two other, related trademarks: the word "tweet" and the Twitter bird logo, making them available to use.</q> The rival has relaunched as Tweet.app.</p>
+        </div>
+        <div class="story">
+          <h3 class="small-head">Filed under what could go wrong</h3>
+          <p>Alan Siefert: <q>Some national security officials are suggesting bombing Chinese data centers if they achieve AGI. What could possibly go wrong.</q></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ IDEAS ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>Books &amp; Ideas</h2>
+      <p class="byline">Still underlining</p>
+    </div>
+    <div class="cols2">
+      <div class="cell">
+        <div class="story">
+          <h3 class="main-head">Day two of an essay from 1945</h3>
+          <p class="first">Gigi is still in Vannevar Bush's <em>As We May Think</em>, and Saturday's mark is the sentence where Bush turns on his own invention — having spent the essay imagining machines that store and retrieve everything a person knows:</p>
+          <blockquote>But even this new machine will not take the scientist where he needs to go.</blockquote>
+          <p>Read next to the day's other preoccupation, it is almost too neat. The thing the machine cannot supply, in Bush's account, is judgement.</p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">And the question underneath the week</h3>
+          <p>From an essay about watching a client build the thing themselves — a client who had previously paid a firm for months to automate the same work — Gigi pulled the sentence that a good many people on this network are avoiding:</p>
+          <blockquote>If building is no longer the hard part, and the person who used to hire us can now get a working result on their own... then what is the thing we still bring?</blockquote>
+          <p class="note">Marked from an essay at adrupalcouple.us; the digest carries no name for its author.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ DOMESTIC ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>Gardens, Kitchens &amp; Disasters</h2>
+      <p class="byline">Saturday, everywhere else</p>
+    </div>
+    <div class="cols4">
+
+      <div class="cell">
+        <figure>
+          <img src="https://blossom.primal.net/892257d32660569e80441dc4a68f9d807eef15fd162042a33b031f802ec414af.jpg" alt="A screenshot serenitys forge posted while reporting that a server migration had wiped their backup database.">
+          <figcaption>Filed by serenitys forge in the minutes after a Start9 migration went wrong. The recovery came later, from an external drive.<span class="credit">Picture: serenitys forge</span></figcaption>
+        </figure>
+        <div class="story">
+          <h3 class="sub-head">The worst hour of anyone's weekend</h3>
+          <p>A morning of household chores and a greenhouse to build ended with a server upgrade and this: <q>But nextcloud had all my photos of my granddaughter from my last relationship.</q></p>
+          <p>Two minutes later, the reprieve — <q>Luckily i remembered i have a back up on another external drive.</q> The stated plan is now two external drives.</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <figure>
+          <img src="https://npub1p37gz205d5avyut6dzz3dlrw5q32tlj3qtasmmq3gf9rpj2fm5fs2ad6pe.blossom.band/7b8c61ca21b7f07db1486fcbb151f1100d451cc508a9b0ba3d7b3fec8c52f62b.jpg" alt="A photograph Anders posted of barn doors he helped hang, described as made from the barn's old floor.">
+          <figcaption>Anders helped his brother-in-law hang barn doors on Saturday. The doors, he said, were made out of the barn's old floor.<span class="credit">Picture: Anders</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">A man, a playlist and a tin of beans</h3>
+          <p>jamw filed perhaps thirty posts between eight and midnight, almost all of them music: a 70s childhood between the UK and Libya, a tune that was playing in the car when he shot the eclipse, an LP he used to own.</p>
+          <p>Earlier he had asked the room a question worth stealing: <q>What are you doing that doesn't involve a screen, computer or the Internet?</q> He answered it himself at quarter past nine — <q>I am so going for a beach walk tomorrow morning. Even if it's raining.</q></p>
+          <p>In between, he took a firm position in a poll by 7fqx on whether one should cook with the water from canned food. <q>I'm a drainer first and foremost</q> — while conceding that for some tins the nutrients have leached into the aquafaba.</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <figure>
+          <img src="https://blossom.primal.net/a09118fd1b46e9a5725d45808bf3a74f661dc2ced5484c170eeaf2acaaa8e1c7.jpg" alt="A photograph Jurjen de Vries filed from a shared food party on a beach in Paphos.">
+          <figcaption>A shared food party on the beach at Paphos, filed by Jurjen de Vries to the food and Cyprus tags.<span class="credit">Picture: Jurjen de Vries</span></figcaption>
+        </figure>
+        <div class="story">
+          <h3 class="small-head">Elsewhere</h3>
+          <p>danielw posted a rusted windmill photographed in a Louisiana garden in February 2009. BitBees reported the plumeria unfolding, then dropping its first bloom. endo walked five kilometres up Penha de Águia in Madeira. Essencial went looking for horsetail and came back with yarrow.</p>
+          <p>And Satoshi Coffee Co. published a full maple salted banana bread recipe, unprompted, at half past five in the evening.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================ WIRE ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>The Wire</h2>
+      <p class="byline">Filed by the news desks</p>
+    </div>
+    <div class="cols3">
+      <div class="cell">
+        <div class="box">
+          <p class="box-head">Rails and rules</p>
+          <div class="wire-item"><p><strong>Kraken and SoFi</strong> have linked crypto trading to banking rails in a new partnership.</p></div>
+          <div class="wire-item"><p><strong>French Hill</strong> is looking for a bipartisan path on the CLARITY Act ahead of this month's vote — the same bill the National Sheriffs' Association dropped its opposition to on Thursday.</p></div>
+          <div class="wire-item"><p><strong>The IMF</strong> line on El Salvador held for a second day: no public money has gone into the reserve.</p></div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="box">
+          <p class="box-head">Where it is actually used</p>
+          <div class="wire-item"><p><strong>Blink</strong> brought the BTC Map merchant directory inside the wallet this week, on a shared open standard other wallets are adopting, so finding somewhere to spend no longer means leaving the app.</p></div>
+          <div class="wire-item"><p>From the same brief: <q>In Nairobi, one settlement reported 3.78M sats circulating locally across 11 projects.</q> And a reported crackdown in Afghanistan, which the brief notes is the pattern — where Bitcoin is banned is often where it is needed.</p></div>
+          <div class="wire-item"><p><strong>Arthur Amendt</strong> has sold out of beef for the year and is trying a Nostr marketplace. There may be bison.</p></div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="box">
+          <p class="box-head">On the record</p>
+          <div class="wire-item"><p>Cypherpunk Quotes ran Wei Dai, from the mailing list in 1995: <q>There has never been a government that didn't sooner or later try to reduce the freedom of its subjects and gain more control over them, and there probably never will be one.</q></p></div>
+          <div class="wire-item"><p>And Diffie and Hellman, from 1976, which on a Saturday of small releases reads almost as a taunt: <q>WE STAND TODAY on the brink of a revolution in cryptography.</q></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ DIARY ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>The Diary</h2>
+      <p class="byline">Coming up, on air, and for sale</p>
+    </div>
+    <div class="cols3">
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Coming up</h3>
+          <p><strong>Thursday, September 10</strong> — Vegan Bitcoin, Echo Park edition, at a plant-based Chinese restaurant in Los Angeles. Boulder Bitcoin meets the same evening at the Rayback Collective.</p>
+          <p><strong>Saturday, September 12</strong> — Nostr 101: Own Your Identity with Cryptographic Keys, Shivajinagar, Pune. Bitcoin Coffee meets at Cafe Adentro, Guadalajara.</p>
+          <p><strong>Thursday, September 17</strong> — Jersey City Bitcoin runs its Socratic Seminar at Barrow Mansion.</p>
+          <p><strong>Monday, October 5</strong> — Bitcoin Poland 2026, Poznań Congress Center.</p>
+          <p><strong>Friday, October 23</strong> — Einundzwanzig, bar21, Linz.</p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">On air</h3>
+          <p>Synthdragon Radio's two channels were still going as this edition was assembled — CHILL playing Glaciella's <em>Ocean</em>, FIERCE on Crimson Racer's <em>Ghost Rider</em>. Both have been running since the end of August.</p>
+          <p>NoGood Radio and ScardustTV were also live at half past nine, Kyiv time.</p>
+          <p class="note">A static page cannot know whether any of them is still on.</p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Classified</h3>
+          <p>A thin day on the small ads. SOUND COFFEE listed two things late on Saturday night: a t-shirt, cotton, described as comfy and coming in colours to match your mood, at <strong>$35</strong>; and the coffee itself, billed as a comforting companion, at <strong>$20</strong>.</p>
+        </div>
+        <div class="story">
+          <h3 class="small-head">And finally</h3>
+          <p>A toddler, quoted by 𝓔𝓬𝓱𝓾𝓭𝓮𝓵𝓮 on being told that dinner could not consist solely of ice cream: <q>You're killing me</q>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band" style="border-bottom:0">
+    <p class="note">Printed for EZ from 677 events across fourteen desks, ranked through their own web of trust and read once more without it as a control. Nothing on this page was chosen by us. Photographs remain on their authors' servers and are shown here by reference.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
