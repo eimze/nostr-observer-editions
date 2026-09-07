@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Nostr Observer — Monday, September 7, 2026 — No. EEAAF2</title>
+<style>
+/* GENERATED FILE - do not edit. Source: generator/src/main/resources/house.css
+   Regenerate: tools/sync-skill.sh */
+/* The Nostr Observer — house stylesheet.
+ *
+ * Tokens and primitives, not a layout. The generator composes the page out of
+ * these each morning; the point of the file is that it never has to reinvent a
+ * palette, a type scale, or the dark-theme handling.
+ *
+ * THEMES: three states, not two. An explicit choice stamps data-theme on <html>;
+ * the default "system" setting stamps nothing, so prefers-color-scheme is the
+ * only separator. Every colour is defined on bare :root first and only
+ * REDEFINED in the other two blocks — a colour whose sole definition sits behind
+ * a media query renders one theme's text on the other theme's ground.
+ */
+
+:root {
+  --paper: #FAF8F3;
+  --paper-2: #F2EFE8;
+  --ink: #16121B;
+  --ink-2: #4C4553;
+  --ink-3: #6E6675;
+  --rule: #C8C1CC;
+  --rule-soft: #E0DAE2;
+  --accent: #57277F;
+  --spot: #9C2B24;
+  --reverse-bg: #16121B;
+  --reverse-ink: #F5F1EC;
+  --reverse-ink-2: #A79DB0;
+  --reverse-spot: #E38375;
+
+  --serif: "Times New Roman", Times, "Liberation Serif", "Nimbus Roman", serif;
+  --body: Georgia, "Liberation Serif", "Times New Roman", Times, serif;
+  --util: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #131017;
+    --paper-2: #1B1721;
+    --ink: #EDE7E0;
+    --ink-2: #B4ABBB;
+    --ink-3: #928A99;
+    --rule: #3B3444;
+    --rule-soft: #2A2432;
+    --accent: #C6A2E8;
+    --spot: #E38375;
+    --reverse-bg: #241E2E;
+    --reverse-ink: #F3EEEA;
+    --reverse-ink-2: #B0A5BC;
+  --reverse-spot: #E38375;
+    --reverse-spot: #E38375;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #131017;
+  --paper-2: #1B1721;
+  --ink: #EDE7E0;
+  --ink-2: #B4ABBB;
+  --ink-3: #928A99;
+  --rule: #3B3444;
+  --rule-soft: #2A2432;
+  --accent: #C6A2E8;
+  --spot: #E38375;
+  --reverse-bg: #241E2E;
+  --reverse-ink: #F3EEEA;
+  --reverse-ink-2: #B0A5BC;
+}
+
+* { box-sizing: border-box; }
+
+/* An explicit background: the viewer paints its own ground behind the page, so
+ * a transparent body silently borrows the host's theme. */
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* THE FOLIO GOES ON TOP, wherever the writer put it.
+ *
+ * A folio is the thin line of standing detail a newspaper sets ABOVE its
+ * nameplate -- volume and number, the date, the price. Printed below it
+ * instead, it stops being a folio and becomes a block of metadata standing
+ * between the reader and the first headline, and on a phone that block is
+ * eight lines deep and pushes the lead off the screen.
+ *
+ * The prompt asks for it on top, but placement is markup and the prompt is
+ * advice; one edition put it there and the next did not. `order: -1` settles
+ * it in the stylesheet, and costs nothing on an edition that already had it
+ * right. */
+.sheet { max-width: 1240px; margin: 0 auto; padding: 20px 22px 72px; display: flex; flex-direction: column; }
+.sheet > .folio { order: -1; }
+
+/* --- type ------------------------------------------------------------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+p { margin: 0; }
+a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.kicker {
+  font-family: var(--util); font-size: .72rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+.byline {
+  font-family: var(--util); font-size: .72rem; letter-spacing: .11em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.dek { font-size: .95rem; line-height: 1.45; color: var(--ink-2); font-style: italic; }
+.note { font-size: .8rem; line-height: 1.45; color: var(--ink-3); font-style: italic; }
+
+.lead-head { font-size: clamp(1.9rem, 3.1vw, 2.7rem); }
+.main-head { font-size: clamp(1.6rem, 2.5vw, 2.15rem); }
+.sub-head  { font-size: 1.28rem; }
+.small-head { font-size: 1.02rem; }
+
+/* --- masthead --------------------------------------------------------- */
+
+.masthead {
+  border-top: 5px solid var(--ink); border-bottom: 1px solid var(--ink);
+  padding: 18px 0 12px; text-align: center;
+}
+.masthead h1 {
+  font-size: clamp(2.3rem, 7.6vw, 5.1rem);
+  letter-spacing: .015em; text-transform: uppercase; line-height: .92;
+}
+.masthead .the {
+  font-size: .44em; display: block; letter-spacing: .42em;
+  margin-bottom: .28em; text-indent: .42em; color: var(--ink-2);
+}
+.motto {
+  margin-top: 14px; font-family: var(--util); font-size: .7rem;
+  letter-spacing: .28em; text-transform: uppercase; color: var(--ink-3);
+}
+/* Three columns, and the middle one is CENTRED on the page.
+ *
+ * `space-between` was the obvious way to set these rows and it is subtly the
+ * wrong one: it centres the middle span only when the two beside it happen to
+ * be the same width, so the date drifts left or right by whatever the window
+ * stamp and the voice count weigh that morning. A `1fr auto 1fr` grid pins it
+ * to the centre of the sheet, under the middle of the nameplate, whatever sits
+ * either side -- including nothing at all, which is the case for the folio's
+ * right-hand slot today. */
+.folio, .dateline {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 3px 12px; align-items: baseline;
+  font-family: var(--util); font-size: .7rem; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.folio > :nth-child(2), .dateline > :nth-child(2) { text-align: center; }
+.folio > :nth-child(3), .dateline > :nth-child(3) { text-align: right; }
+
+/* A row of two is centre-and-right, not left-and-centre.
+ *
+ * The folio's left slot is empty -- there is no volume number and no cover
+ * price -- so the row carries two spans where the grid expects three, and by
+ * source order they would land in columns one and two. Written this way, the
+ * markup stays free of an empty `<span>` whose only job is to push the next
+ * one along, and the date still sits under the middle of the nameplate. */
+.folio > :first-child:nth-last-child(2) { grid-column: 2; text-align: center; }
+.folio > :nth-child(2):nth-last-child(1) { grid-column: 3; text-align: right; }
+
+/* COLLAPSE WHEN IT MUST, AND NOT ONE PIXEL SOONER.
+ *
+ * These rows used to stack below 720px along with the columns, because that is
+ * where everything else on the page breaks. Measured, they had no need to: the
+ * dateline's three spans hold one line down to 528px and the folio's two down
+ * to 364px, so the shared breakpoint was stacking the dateline 190px early and
+ * the folio 350px early -- three lines of standing detail on a screen with room
+ * for one.
+ *
+ * So they get their own breakpoints, one each, set just under what they
+ * measure. The folio's is below any phone in circulation, which is the point:
+ * it is there for a 320px screen, not for a 390px one. Stacked, they centre --
+ * the same symmetry the nameplate has, with the centred span still centred.
+ */
+/* Below the fold, the outer tracks stop paying for each other.
+ *
+ * `1fr auto 1fr` centres exactly, and it does it by making the right-hand track
+ * as wide as the left -- so "234 voices", which needs 69px, reserves the 170px
+ * that "Ranked as Vitor Pamplona" needs beside it. That is a hundred wasted
+ * pixels, and it is why a row whose text measures 400px was breaking at 528.
+ *
+ * On a phone the page is one column and there is no nameplate centre to line up
+ * against pixel-for-pixel, so the tracks size to their contents and the middle
+ * span is centred in what is left. The row then holds one line to about 430px
+ * instead of 528. Above this the exact version is back. */
+@media (max-width: 720px) {
+  .dateline { grid-template-columns: auto 1fr auto; }
+}
+
+@media (max-width: 430px) {
+  .dateline { grid-template-columns: 1fr; text-align: center; }
+  .dateline > :nth-child(3) { text-align: center; }
+}
+
+@media (max-width: 380px) {
+  .folio { grid-template-columns: 1fr; text-align: center; }
+  .folio > :first-child:nth-last-child(2), .folio > :nth-child(2):nth-last-child(1) {
+    grid-column: 1; text-align: center;
+  }
+}
+
+.folio { padding-bottom: 8px; }
+.dateline { border-bottom: 3px double var(--ink); padding: 7px 0; color: var(--ink-2); }
+
+/* --- columns ---------------------------------------------------------- */
+
+.fold { display: grid; grid-template-columns: repeat(12, 1fr); border-bottom: 3px double var(--ink); }
+.col { padding: 20px; border-left: 1px solid var(--rule); }
+.col:first-child { padding-left: 0; border-left: 0; }
+.col:last-child { padding-right: 0; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; }
+.span-8 { grid-column: span 8; }
+.span-12 { grid-column: span 12; }
+
+.band { border-bottom: 1px solid var(--ink); padding: 22px 0 26px; }
+.band-head {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+  border-bottom: 1px solid var(--ink); padding-bottom: 6px;
+}
+.band-head h2 { font-size: 1.05rem; letter-spacing: .2em; text-transform: uppercase; }
+.cols2 { display: grid; grid-template-columns: repeat(2, 1fr); }
+.cols3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+.cols4 { display: grid; grid-template-columns: repeat(4, 1fr); }
+.cell { padding: 0 18px; border-left: 1px solid var(--rule-soft); display: flex; flex-direction: column; gap: 9px; }
+.cell:first-child { padding-left: 0; border-left: 0; }
+.cell:last-child { padding-right: 0; }
+
+/* --- stories ---------------------------------------------------------- */
+
+.story { display: flex; flex-direction: column; gap: 9px; }
+.story + .story { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--rule-soft); }
+.story p { font-size: .925rem; line-height: 1.52; hyphens: auto; }
+.story p.first::first-letter {
+  float: left; font-family: var(--serif); font-weight: 700; font-size: 3.1em;
+  line-height: .79; padding: .05em .09em 0 0; color: var(--accent);
+}
+
+/* --- art -------------------------------------------------------------- */
+
+figure { margin: 0; display: flex; flex-direction: column; gap: 7px; }
+figure img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); background: var(--paper-2); }
+figcaption { font-style: italic; font-size: .82rem; line-height: 1.4; color: var(--ink-2); }
+figcaption .credit {
+  font-family: var(--util); font-style: normal; font-size: .7rem;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3);
+  display: block; margin-top: 4px;
+}
+
+/* --- boxes ------------------------------------------------------------ */
+
+.box {
+  border: 1px solid var(--ink); padding: 14px 15px; background: var(--paper-2);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.box-head {
+  font-family: var(--util); font-size: .72rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; border-bottom: 1px solid var(--ink); padding-bottom: 7px;
+}
+.wire-item { padding: 11px 0; border-bottom: 1px dotted var(--rule); }
+.wire-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.wire-item p { font-size: .85rem; line-height: 1.45; color: var(--ink-2); }
+
+blockquote { margin: 0; font-family: var(--serif); font-size: 1.22rem; line-height: 1.24; }
+q { quotes: "“" "”"; }
+
+/* Reverse panel — for the one thing on the page that should stop the reader.
+ *
+ * IT IS DARK IN BOTH THEMES, which is why it gets its own accent. `--spot` is
+ * tuned against the PAGE's ground, so in the light theme it is a deep red for
+ * cream paper — and printing that on the reverse panel's near-black put the
+ * kicker at 2.45:1, on every story that had one. Measured, not noticed: it
+ * reads as "small red caps" until you check it. */
+.reverse { background: var(--reverse-bg); color: var(--reverse-ink); padding: 26px; }
+.reverse h2, .reverse h3 { color: var(--reverse-ink); }
+.reverse .dek, .reverse .byline { color: var(--reverse-ink-2); }
+.reverse .kicker { color: var(--reverse-spot); }
+
+/* --- data ------------------------------------------------------------- */
+
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px dotted var(--rule); font-size: .83rem; }
+th {
+  font-family: var(--util); font-size: .7rem; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-3); border-bottom: 1px solid var(--ink);
+}
+td.num { text-align: right; padding-right: 0; font-family: var(--mono); font-size: .78rem; }
+
+/* --- responsive ------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .span-3, .span-4, .span-5 { grid-column: span 6; }
+  .cols4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .sheet { padding: 14px 15px 56px; }
+  .fold { display: flex; flex-direction: column; }
+  .col { padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--rule); }
+  .col:last-child { border-bottom: 0; }
+  .cols2, .cols3, .cols4 { display: flex; flex-direction: column; }
+  .cell { padding: 16px 0; border-left: 0; border-top: 1px solid var(--rule-soft); }
+  .cell:first-child { border-top: 0; padding-top: 0; }
+  .reverse { padding: 20px 16px; }
+}
+
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="folio">
+    <span>No. EEAAF2</span>
+    <span>Monday, September 7, 2026</span>
+    <span>24h to 15:10</span>
+  </div>
+
+  <header class="masthead">
+    <h1><span class="the">The</span>Nostr Observer</h1>
+    <p class="motto">Printed from one corner of the network</p>
+  </header>
+
+  <div class="dateline">
+    <span>Ranked as EZ</span>
+    <span>567 events, 14 desks</span>
+    <span>153 voices</span>
+  </div>
+
+  <!-- ============================ THE FOLD ============================ -->
+  <div class="fold">
+
+    <div class="col span-6">
+      <div class="story">
+        <p class="kicker">Liquid Network</p>
+        <h2 class="lead-head">Ninety-five per cent of the reserves walked out, and the fix had been written a month earlier</h2>
+        <p class="dek">A seven-year-old shortcut in a verification cache let someone conjure L-BTC out of nothing. The patch existed on 3 August. It was never released.</p>
+        <p class="byline">The lead</p>
+        <p class="first">Liquid stopped on Sunday night. By Monday morning the people on this page had assembled, between them, a better account of what happened than any single one of them had at the start — which is the thing a network is actually for, and it does not happen often enough to go unremarked.</p>
+        <p>The mechanism is almost banal. Liquid hides amounts and asset types behind cryptographic commitments and range proofs. Verifying those proofs is expensive, so about seven years ago a cache was added: check a proof once, and if the same bytes turn up again, do not check them twice.</p>
+        <p>The cache compared the range-proof bytes and the value commitment. It did not compare the asset type, and it did not compare the output script. So an output carrying a different asset and a different spending condition could present a proof that had been valid for something else, and the cache would wave it through. That is enough to create L-BTC with no bitcoin behind it.</p>
+        <p>From there nothing clever was required. The fabricated tokens went through SideSwap for real bitcoin, and the peg-out did exactly what a peg-out does: burned the tokens, and had the Federation multisig send the coins out. In markusturm's account, 3,996 bitcoin.</p>
+        <p>The part that will be argued about for weeks is the timeline. Blockstream had already found the cache bug and committed a fix on <strong>3 August 2026</strong>, merging it to master on <strong>1 September</strong>. No release carrying that patch was ever published, and SideSwap was still running an unpatched build. Nobody on this page could say why.</p>
+        <p>gandlaf21 spent the evening trying to make the official framing cohere and could not: <q>tf does that even mean: they withdrew it with that PAK key, but the key wasn't compromised?? Makes no sense</q></p>
+        <p>Others read the chain rather than the statements. optout noticed the coins had not actually gone anywhere: <q>The ~4000 coins are being moved to the same address in this tx, so not really transferred.</q> gandlaf21, checking again the next morning: <q>Kinda crazy that it still hasn't moved since, by either party</q>.</p>
+        <p>Whether "white hat" survives contact with the facts is the open question. Blockstream is negotiating with somebody who is holding 95% of a federation's reserves and has published terms. Gzuuus was blunt — <q>Hacked on Sunday... And they call themselves white hat hahaha evil</q> — and Alan ₿ read the on-chain message as insurance: <q>"We are whitehats" feels like a cover in case the hackers get caught eventually</q>.</p>
+      </div>
+    </div>
+
+    <div class="col span-3">
+      <div class="story">
+        <p class="kicker">In brief</p>
+        <h3 class="sub-head">What is known</h3>
+        <p>A caching bug in Elements, the software Liquid is built on, let somebody mint L-BTC that no bitcoin stood behind. Around <strong>4,000 bitcoin</strong> — put at some 95% of the Federation's reserves — left the multisig by an ordinary peg-out.</p>
+        <p>Liquid is halted. Bridge nodes are disabled, and L-BTC deposits and withdrawals are suspended, a decision taken by Blockstream together with Federation members.</p>
+        <p>No Federation key was compromised, and no Peg-out Authorization Key either. Other assets issued on the network were untouched.</p>
+        <p>The taker identified themselves on-chain — <q>we are whitehats. contact us on chain</q> — and is negotiating by OP_RETURN. They have said they will return most of it, but only once the bug is fixed and every node has updated.</p>
+      </div>
+      <div class="story">
+        <p class="kicker">The instrument</p>
+        <h3 class="small-head">Two out of four hundred</h3>
+        <p>The unranked control read returned 400 notes. Two of them also reached this page.</p>
+        <p class="note">The ranking relay was unreachable for part of the morning, which is its own small story and may have thinned some desks. Editions are still fixed at 24 hours.</p>
+      </div>
+    </div>
+
+    <div class="col span-3">
+      <figure>
+        <img src="https://blossom.primal.net/a9167f8711a1b3472ea37487e454a59df804e9fc93e5b6eae24db82bdec4fbe2.png" alt="One of three screenshots Jan Kotas posted while reporting on the Liquid Network incident.">
+        <figcaption>One of three screenshots Jan Kotas filed on Sunday night with the verdict: <q>Jeez, this looks bad. Even if the white hats return the coins, it's gonna be a big hit for Liquid.</q><span class="credit">Filed by Jan Kotas</span></figcaption>
+      </figure>
+      <div class="story">
+        <p class="kicker">Overheard</p>
+        <p>Kenshin, on the arithmetic: <q>Nice... 1 in - 4000 out... Looks legit! 😅</q></p>
+        <p>unit, filing the headline everybody else wishes they had written: <q>Liquid Network: Simplicity has it's Complications</q></p>
+        <p>Knut Svanholm, on the general situation: <q>Clusterfuck around and clusterfind out</q>. Logen, four hours later and apparently unable to leave it: <q>Fustercluck around and fusterclind out</q>.</p>
+        <p>Logen again, on the federated model: <q>That's a quorum nightmare.</q></p>
+        <p>And Big Barry Bitcoin, asking the question the fix depends on: <q>So a bug fix would be a consensus change and a fork right?</q></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================ AI ============================ -->
+  <div class="band">
+    <div class="reverse">
+      <p class="kicker">The double edge</p>
+      <h2 class="main-head">The same tool found the hole and shipped the fork</h2>
+      <p class="dek">Two posts on the same day, by people not talking to each other, describe the identical capability from opposite ends.</p>
+      <p>markusturm's write-up of the incident is titled, in German, <em>How an AI found a seven-year-old bug in thirty seconds — and why a code review process never caught it</em>. Its opening line is the sentence to keep:</p>
+      <blockquote>Die Werkzeuge, die uns retten können, sind dieselben, die uns gefährden können.</blockquote>
+      <p>The tools that can save us are the same ones that can endanger us — and what matters is who reaches for them first, and more cleverly.</p>
+      <p>Ungovernable spent the same day on the other end of that sentence. Somebody wanted miniscript support in Liana; an issue had been open for three years and had gone nowhere. <q>So GG put the clankers to work and built the fork himself, plus a standalone bridge so it talks to the live Liana desktop without patching Liana at all.</q></p>
+      <p>They are careful about what that is worth, which is why it is worth reporting: <q>Nobody is claiming these forks are safe to hold funds on. But getting 95% of the way there, so an actual engineer can pick it up and review it properly, is completely fucking wild.</q></p>
+      <p>Their closing line explains why this column exists at all: <q>This is the other side of the AI story, and it does not get the headlines the hacks do.</q></p>
+    </div>
+  </div>
+
+  <!-- ============================ MOOD ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>The Week So Far</h2>
+      <p class="byline">Read from a van</p>
+    </div>
+    <div class="cols3">
+
+      <div class="cell">
+        <figure>
+          <img src="https://npub1y6sz5zexc5arc7p80styjxj2df6awa2zas5m7u78yya2yp2dp9yspc9lrf.blossom.band/8040c310bce40ddb6257484eae9f328f3c4a5f014f0627713ac6139339a6c9f2.jpg" alt="One of five photographs daum3ns posted on returning from several weeks travelling in a van.">
+          <figcaption>One of five pictures daum3ns filed on getting back from a few weeks away — a festival, then, in their words, nature only.<span class="credit">Picture: daum3ns</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="main-head">Everything that happened while one man was off the internet</h3>
+          <p class="first">The best summary of the fortnight came from somebody who had missed all of it. daum3ns came back from weeks in a van, opened the network, and read the changelog of the world in one sentence:</p>
+          <blockquote>the last thing i saw was the coldcardhack an the chain split, now there is a blake2b fork and a liquid hack..</blockquote>
+          <p>Four items, no adjectives, and a shrug — <q>what intresting times to be alive 😊</q> — followed by the only piece of advice anybody offered all day that costs nothing: <q>just don't forget to switch off the net and enjoy nature from time to time</q>.</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">The other grievance</h3>
+          <p>Running underneath the Liquid story all day, and older than it, was an unhappiness with Coinkite that this page cannot fully account for — the events behind it fall outside the window. What is on the record is the temperature.</p>
+          <p>Ranger Andy noted the response: <q>Coldcard turning off the comments on their tweets.</q> LWB was thinking about the endorsements — <q>to thing how many influencers back in the day of bitcoin twatter used to shill this company as the gold standard of security</q>.</p>
+          <p>Kenshin arrived late and did not soften it: <q>I am a bit late to the party... But I am very sorry to hear stories about people losing their life savings due to incompetence of Coinkite... What a mess.</q> By Monday morning, surveying the whole field: <q>It feels like they are all competing for incompetence...</q></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================ IDEAS ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>Books &amp; Ideas</h2>
+      <p class="byline">What was underlined</p>
+    </div>
+    <div class="cols2">
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="main-head">Do you think readers can't tell, or that they don't care?</h3>
+          <p class="first">fiatjaf spent Sunday evening marking up Bryan Cantrill's essay <em>The Revolt of the Reader</em>, published two days earlier, and the passages chosen make an argument on their own.</p>
+          <blockquote>We readers are left with pointed questions for those promoting LLM-authored pieces: do you think readers can't tell? Or do you think readers don't care?</blockquote>
+          <p>Cantrill's charge is not that machine-assisted prose is bad, but that its authors are not present in it: <q>those writing with LLMs are either not reading enough to see the LLM's obvious structural tells — or (and?) they aren't even reading their own content.</q></p>
+          <p>And the cost, which is reputational rather than literary: <q>At best, they will wrap your otherwise real content in constructs that cause people to skim or otherwise stop reading; at worst, they will cause people who see it for what it is to question your authenticity entirely.</q></p>
+          <p class="note">The editor notes the obvious, and declines to squirm about it: this page was assembled by a machine, from other people's words, and every quotation on it is checked against the original before it prints.</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Scaffolding, or substitution</h3>
+          <p>Gzuuus marked a passage from a paper on arXiv that gives the same worry a sharper instrument. Assistance that improves your output can quietly reduce your engagement, your recall and your sense of having written the thing — so the useful distinction is what the help does to your next attempt:</p>
+          <blockquote>Scaffolding reduces immediate cognitive demands while preserving or increasing the user's subsequent capacity to perform the task; substitution removes the need to perform the underlying cognitive operation.</blockquote>
+        </div>
+        <div class="story">
+          <h3 class="sub-head">Why nobody's family is here</h3>
+          <p>Marc answered a question fiatjaf had put to the room — why don't you invite your friends and family to Nostr? — with the least flattering answer available: <q>I did. They weren't interested.</q></p>
+          <p>crany, separately, diagnosed the same wall from the other side: key signing, relay configuration and building your own feed are things most people have no patience to work out.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================ TECHNICAL ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>Custody</h2>
+      <p class="byline">Arguments the week provoked</p>
+    </div>
+    <div class="cols3">
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Against reflexive multisig</h3>
+          <p>Big Barry Bitcoin made the unfashionable case, on a day when everyone was frightened: <q>I think that people who blindly recommend Multisig give it too much credit and possibly underestimate the security that a single private key already gives you.</q></p>
+          <p>The argument is about competence, not cryptography — keys kept together, attack surfaces never honestly assessed. <q>If you can do Multisig properly, you can probably do single sig properly with more ease.</q> Multisig, in their view, is for collaborative custody.</p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">And a compliment to Lightning</h3>
+          <p>The same writer, looking at the wreckage of a simpler system: <q>Lightning is still 10x more complex. I'm actually surprised there hasn't been a flurry of attacks and bug finds constantly coming out for lightning non stop.</q> The verdict was <q>Reservedly impressed honestly.</q></p>
+        </div>
+        <div class="story">
+          <h3 class="small-head">Coming tomorrow</h3>
+          <p>Blitz Wallet spent the weekend teasing the end of the seed phrase: <q>For years, getting someone into Bitcoin meant the same wall: write down 12 words, don't lose them, good luck. Tomorrow, that wall comes down.</q></p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Solving it yourself</h3>
+          <p>BitcoinBabies had paid the mothers in their programme every Sunday for two years using a batch payment feature at Blink. It was deprecated, leaving them with a mountain of manual work.</p>
+          <p>So they built a replacement on the Spark SDK and posted a video of it paying out beside the Blink app, both pointed at the same non-custodial wallet. <q>But the Bitcoin ethos is about solving your own problems.</q></p>
+          <p class="note">Their Week 23 lesson, on human rights and personal sovereignty, has Linda Wambui as guest speaker.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ DOMESTIC ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>Gardens, Kitchens &amp; Crows</h2>
+      <p class="byline">The weekend, everywhere else</p>
+    </div>
+    <div class="cols4">
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Progress with the crows</h3>
+          <p>Avis has been working on this for a while, and Monday brought a result: <q>I think I have turned a corner with the crows, they are hanging out on the ground more often these days</q>.</p>
+          <p>The household has also expanded. <q>My crows have started hanging out with this wood pigeon, I think they consider it a sort of pet😊</q> — the reasoning being, in Avis's telling, that the peanut supply is now good enough that the crows can afford to adopt a dog.</p>
+          <p class="note">Filed to #crowstr, twice, a couple of minutes apart, with the second attempt spelled properly.</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <figure>
+          <img src="https://blossom.dreamith.to/c2b9510a1da884448e1b8f0b58d64c155ac7eac75f25203b6f49e31b9948d449.jpeg" alt="A photograph A.A.Ron shared alongside a note about the Alaska State Fair Cabbage Weigh-Off.">
+          <figcaption>Filed with A.A.Ron's congratulations to Scott Robb, who won this year's Alaska State Fair Cabbage Weigh-Off with an entry of 122 pounds.<span class="credit">Filed by A.A.Ron</span></figcaption>
+        </figure>
+        <div class="story">
+          <p>The gardener's own assessment: <q>That's more cabbage than I grow in my whole garden.</q></p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">The milkweed is for the bugs</h3>
+          <p>GrowMilkweedPlants spent the weekend collecting seed and defending the method: <q>All summer long the haters tell me the bugs are bad for milkweed. For me, the milkweed is for the bugs. And both are doing okay!</q></p>
+          <p>Also from the same account, an origin story for a habit: honey as the sweetener in coffee, learned in Costa Rica twenty-one years ago.</p>
+        </div>
+        <div class="story">
+          <h3 class="small-head">A useful fact</h3>
+          <p>twentyone, on the heat sweats that follow a winter roast, reports it is a histamine question — longer ageing and slower cooking mean more of it — and that the fix is a bowl of frozen blueberries. Their standing position: <q>Blueberries are the best fruit ever created</q>.</p>
+        </div>
+      </div>
+
+      <div class="cell">
+        <figure>
+          <img src="https://blossom.daniel.camera/b6fe9ec2d15c20b783f036a7cfc4ca24a8545e1ba408f8ad49c6787026a5be05.jpg" alt="A drone photograph danielw took near Durango, Colorado in March 2019, captioned by them as clouds and mountains.">
+          <figcaption>danielw filed a drone shot of clouds and mountains around Durango, Colorado, taken in March 2019 — one of a run of old frames they have been posting to #photostr.<span class="credit">Picture: danielw</span></figcaption>
+        </figure>
+        <div class="story">
+          <h3 class="small-head">And a goodbye</h3>
+          <p>Marininha marked the last Sunday churrasco of the year, and then, at half past eleven at night: <q>I confess that I'll miss the community here.</q></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================ WIRE ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>The Wire</h2>
+      <p class="byline">Filed from elsewhere</p>
+    </div>
+    <div class="cols3">
+      <div class="cell">
+        <div class="box">
+          <p class="box-head">Money and borders</p>
+          <div class="wire-item"><p><strong>Article 21c</strong> — Wilder flagged a rule taking effect on 11 January 2027: a bank established outside the EU may not take deposits, lend, or issue guarantees to clients resident in the EU unless it opens a licensed branch in that member state. Filed in English and in Slovak.</p></div>
+          <div class="wire-item"><p><strong>Strike</strong> is doing what Ken called shotgun KYC in Europe, reportedly on very small amounts.</p></div>
+          <div class="wire-item"><p><strong>Loki</strong>, on billboards Morena ran in Mexico against seventy years of one-party rule: <q>I often think the same thing about world reserve currencies.</q></p></div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="box">
+          <p class="box-head">From Stacker News</p>
+          <div class="wire-item"><p>The Liquid pegout thread reached <strong>1,843 sats and 39 comments</strong>, the busiest item of the day. A companion post asked whether the chain had stopped entirely: <q>Did Liquid just stop mining? Last block mined 4h ago</q>.</p></div>
+          <div class="wire-item"><p>Also carried: a survey on the natural mNAV of treasury companies, a claim that SpaceX is building a Louisiana spaceport, and the news that Nitter is unarchived and will continue.</p></div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="box">
+          <p class="box-head">Releases</p>
+          <div class="wire-item"><p><strong>Ditto 2.38.1</strong> and <strong>Mostrix 0.3.1</strong> shipped, alongside <strong>KeyOS 1.3.2</strong>, which prepares Passport Prime for its next version. Team Soapbox also published <strong>Armada</strong>, a community chat app with serverless, end-to-end encrypted spaces.</p></div>
+          <div class="wire-item"><p>Freedom.Tech's weekly patch board recorded no CVEs and no coordinated security patches — a sentence that reads differently after the weekend than it did when it was written.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ DIARY ============================ -->
+  <div class="band">
+    <div class="band-head">
+      <h2>The Diary</h2>
+      <p class="byline">Coming up, on air, and for sale</p>
+    </div>
+    <div class="cols3">
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Coming up</h3>
+          <p><strong>Thursday, September 10</strong> — <em>1 Second On The Clock</em>, billed as a gathering of individuals who believe the team up north paid off the referees and that Western Michigan got robbed. Location given as everywhere, all the time.</p>
+          <p><strong>Friday, September 18</strong> — Meetup Parma e Piacenza, half past six in the evening, Italian time. The listing asks whether Bitcoin died again in 2026 after a whole summer of attacks, and how the people who study it reacted.</p>
+          <p class="note">Only two listings arrived in the window. A thin diary is a thin diary.</p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">On air</h3>
+          <p>Scottie's <em>BTC Beats — This Is Why We Nostr</em> went up three times over the morning, most recently at ten past three, Kyiv time.</p>
+          <p>The Lightning Goats live goat feeder has been running since Sunday afternoon. ScardustTV has been up since Saturday.</p>
+          <p class="note">Streams end; a static page cannot know when.</p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="story">
+          <h3 class="sub-head">Classified</h3>
+          <p>A good day for small growers. <strong>Red milkweed seed</strong>, hand-collected in New Jersey, from <strong>$3</strong> for three seeds to <strong>$10</strong> for twenty-five; oval-leaved milkweed alongside it at up to <strong>$25</strong>.</p>
+          <p>From a family olive grove in Sparta, <strong>Costos extra virgin olive oil</strong> at <strong>$21</strong> the 500ml bottle, and <strong>Cretan wildflower honey</strong> at <strong>$16</strong>.</p>
+          <p>At the other end: a 2023 <strong>Yamaha XMAX 300</strong>, one owner, 15,000km and just serviced, <strong>€4,500</strong>. And a replica Spain shirt, never worn, <strong>€10</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band" style="border-bottom:0">
+    <p class="note">Printed for EZ from 567 events across fourteen desks, ranked through their own web of trust and read once more without it as a control. Nothing on this page was chosen by us. Photographs remain on their authors' servers and are shown here by reference.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
