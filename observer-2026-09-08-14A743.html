@@ -327,6 +327,29 @@ td.num { text-align: right; padding-right: 0; font-family: var(--mono); font-siz
   .reverse { padding: 20px 16px; }
 }
 
+
+/* House overrides — EZ's standing preference, appended after house.css.
+ *
+ * Quotations are marked and set in italic. Inline <q> already takes its marks
+ * from the house `quotes` property; a <blockquote> does not, so it gets them
+ * explicitly here. Kept in this file rather than edited into house.css, which
+ * is generated upstream and would lose the change on the next sync-skill run.
+ */
+
+q { font-style: italic; }
+
+blockquote {
+  font-style: italic;
+  quotes: "\201C" "\201D";
+}
+blockquote::before { content: open-quote; }
+blockquote::after  { content: close-quote; }
+
+/* Where the surrounding text is already italic — deks, editor's notes, picture
+ * captions — quoted matter goes upright instead. That is the usual convention,
+ * and without it a quotation inside a caption is invisible as a quotation. */
+.dek q, .note q, figcaption q { font-style: normal; }
+
 </style>
 </head>
 <body>
@@ -355,7 +378,7 @@ td.num { text-align: right; padding-right: 0; font-family: var(--mono); font-siz
     <div class="col span-5">
       <div class="story">
         <p class="kicker">Liquid, day two</p>
-        <h2 class="lead-head">They kept fifteen per cent, and the word "white hat" did not survive it</h2>
+        <h2 class="lead-head">They kept fifteen per cent, and the word “white hat” did not survive it</h2>
         <p class="dek">The coins came back. What happened in between was a public argument in which one of the most careful people on this network talked himself out of his own position.</p>
         <p class="byline">The lead</p>
         <p class="first">The bitcoin has been returned to the Liquid federation, minus a cut. That much is settled. What made Monday worth reading was watching people reason about it in the open, at speed, and change their minds where the facts moved.</p>
