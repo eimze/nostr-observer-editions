@@ -399,11 +399,18 @@ figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
  * ground, and this is the one link on the page meant to be found by strangers. */
 .dateline a.src { color: var(--accent); border-bottom: 1px dotted var(--accent); }
 .dateline a.src:hover { border-bottom-style: solid; }
+
+/* Authored links in prose — the verb after an attribution, or an account
+ * mention. Same quiet treatment as a quotation link. Unlike `.src` these are
+ * written by hand and no tool regenerates them. */
+a.ref { border-bottom: 1px dotted var(--rule); color: inherit; }
+a.ref:hover { color: var(--accent); border-bottom-color: var(--accent); }
 </style>
 </head>
 <body>
 <div class="sheet">
   <nav class="backlink"><a href="index.html">&larr; All editions</a><a href="feed.xml">RSS</a></nav>
+
 
 
 
@@ -499,7 +506,7 @@ figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
     <div class="reverse">
       <p class="kicker">Books &amp; Ideas</p>
       <h2 class="main-head">What are human beings for</h2>
-      <p class="dek">Gigi marked twenty-six passages in one essay on Sunday. Amanda, separately and without reference to him, quoted from the same piece. It is the argument underneath every other story on this page.</p>
+      <p class="dek"><a class="ref" href="https://njump.me/npub1dergggklka99wwrs92yz8wdjs952h2ux2ha2ed598ngwu9w7a6fsh9xzpc">Gigi</a> marked twenty-six passages in one essay on Sunday. <a class="ref" href="https://njump.me/npub158mxap4gsexqeutj5sws2pfkngyq3lh726gex8wa7flt28tzhytq4jy85z">Amanda</a>, separately and without reference to them, quoted from the same piece. It is the argument underneath every other story on this page.</p>
       <p>The essay is Charles Eisenstein's <em>The Lost Subject: AI and the Human</em>, and the passages chosen make its case without assistance. It starts with what a proof is for:</p>
       <a class="src" href="https://njump.me/fa512679c3885d0fc5424332e9579f9ddb84edef9244378a44e3c241eb2accba"><blockquote>The purpose of science and math is not only—not even primarily—to produce results. It is also to produce understanding.</blockquote></a>
       <p>The worry follows immediately. <a class="src" href="https://njump.me/04fde33b85c594a1c3a0f3e6f86e8f07b6391f9a4cdae16c2918d73e91c8fb7d"><q>No understanding will be necessary to produce useful results</q></a> — and once that is true, <a class="src" href="https://njump.me/c420869b87e9b427e0ba352cf2f4187922a830e2cfba361eb9ff397b70aa2a7f"><q>as understanding becomes unnecessary to produce results, scientific education and training would lose its pragmatic motivation</q></a>. Nobody would be paid to understand anything.</p>
@@ -545,8 +552,8 @@ figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
       <div class="cell">
         <div class="story">
           <h3 class="sub-head">Elsewhere in the shop</h3>
-          <p><strong>Hivetalk</strong> shipped its Stage 5 release: live polls in every permanent room with no paid plan required, server-side vote counting, plus recording and subscriptions.</p>
-          <p><strong>fiatjaf</strong> explained that the Pomegranate Central server acts as a relay so it can do NIP-46 bunker signing quickly, conceded it should not be relaying those events, and asked to be told about anything actually harmful rather than merely untidy.</p>
+          <p><strong>Hivetalk</strong> <a class="ref" href="https://njump.me/9ccb8e42d90434c441671d9b5e4c50d6f03813e85f217810e91f046c2f670fee">shipped</a> its Stage 5 release: live polls in every permanent room with no paid plan required, server-side vote counting, plus recording and subscriptions.</p>
+          <p><strong>fiatjaf</strong> <a class="ref" href="https://njump.me/283b5bed630b375a776d8c876b53da0cd2678386e9fd40895253a4e06cd49b1f">explained</a> that the Pomegranate Central server acts as a relay so it can do NIP-46 bunker signing quickly, conceded it should not be relaying those events, and asked to be told about anything actually harmful rather than merely untidy.</p>
           <p><strong>hodlbod</strong>, on a client that has not moved: <a class="src" href="https://njump.me/00000804c2bd03f710623a36518cefe81be07dbe7adee984c18412ff08c07164"><q>Primal is stuck in the past with insecure dms</q></a>.</p>
           <p class="note">Also announced: a v4v music show at seven this evening, and Noderunners Radio, which played 366 songs on Sunday — fourteen of them requested and paid for by listeners.</p>
         </div>
@@ -639,7 +646,7 @@ figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
         </div>
         <div class="story">
           <h3 class="small-head">Also filed</h3>
-          <p>Permanerd recommended a fly-fishing book that turns out to have been written by somebody on this network. Jonathan cooked pork tomahawks with balsamic.</p>
+          <p>Permanerd <a class="ref" href="https://njump.me/1bd065edcd506dd78ceaad60693ade725284e628d66f79b0cd3ec7a23908b214">recommended</a> a fly-fishing book that turns out to have been written by somebody on this network. Jonathan <a class="ref" href="https://njump.me/183d4bb60205c55a4d53cb77bb336be86ee00342fbb5a0f7f09a2ccee185deeb">cooked</a> pork tomahawks with balsamic.</p>
         </div>
       </div>
 
@@ -698,6 +705,7 @@ figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
   <div class="band" style="border-bottom:0">
     <p class="note">Printed for EZ from 659 events across fourteen desks, ranked through their own web of trust and read once more without it as a control. Nothing on this page was chosen by us. Photographs remain on their authors' servers and are shown here by reference.</p>
   </div>
+
 
 
 
