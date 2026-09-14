@@ -349,10 +349,32 @@ blockquote::after  { content: close-quote; }
  * and without it a quotation inside a caption is invisible as a quotation. */
 .dek q, .note q, figcaption q { font-style: normal; }
 
+/* Site furniture — a way back to the archive.
+ *
+ * Added after validate.mjs runs, because the edition's own link rule permits
+ * only njump.me event links and resolve.mjs unwraps everything else. This is
+ * not part of the paper; it is the same class of thing as the index page.
+ *
+ * `.sheet` is a flex column and the house sheet pins `.folio` to `order: -1`,
+ * so the top link needs -2 to sit above it. The foot copy keeps source order.
+ */
+.backlink {
+  order: -2;
+  font-family: var(--util); font-size: .7rem; letter-spacing: .13em;
+  text-transform: uppercase; padding-bottom: 10px;
+}
+.backlink a { color: var(--ink-3); border-bottom: 0; }
+.backlink a:hover { color: var(--accent); }
+.backlink.foot {
+  order: 0; border-top: 1px solid var(--rule);
+  padding-top: 18px; padding-bottom: 0; margin-top: 10px;
+}
 </style>
 </head>
 <body>
 <div class="sheet">
+  <nav class="backlink"><a href="index.html">&larr; All editions</a></nav>
+
 
   <div class="folio">
     <span>No. F36D7F</span>
@@ -645,6 +667,8 @@ blockquote::after  { content: close-quote; }
     <p class="note">Printed for EZ from 659 events across fourteen desks, ranked through their own web of trust and read once more without it as a control. Nothing on this page was chosen by us. Photographs remain on their authors' servers and are shown here by reference.</p>
   </div>
 
+
+  <nav class="backlink foot"><a href="index.html">&larr; All editions</a></nav>
 </div>
 
 </body>

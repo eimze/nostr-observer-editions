@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>The Nostr Observer</title>
+  <link>https://eimze.github.io/nostr-observer-editions/</link>
+  <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
+  <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
+  <language>en</language>
+  <lastBuildDate>Mon, 14 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Monday, September 14, 2026 — Revolut handed it all over, and the rules say it was right to</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-14-F36D7F.html</link>
+    <guid isPermaLink="false">nostr-observer-F36D7F</guid>
+    <pubDate>Mon, 14 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Passports, selfies, addresses, IBANs, full transaction histories. The request was forged. Nobody was required to check.</description>
+  </item>
+  <item>
+    <title>Tuesday, September 8, 2026 — They kept fifteen per cent, and the word “white hat” did not survive it</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-08-14A743.html</link>
+    <guid isPermaLink="false">nostr-observer-14A743</guid>
+    <pubDate>Tue, 08 Sep 2026 12:00:00 GMT</pubDate>
+    <description>The coins came back. What happened in between was a public argument in which one of the most careful people on this network talked himself out of his own position.</description>
+  </item>
+  <item>
+    <title>Monday, September 7, 2026 — Ninety-five per cent of the reserves walked out, and the fix had been written a month earlier</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-07-EEAAF2.html</link>
+    <guid isPermaLink="false">nostr-observer-EEAAF2</guid>
+    <pubDate>Mon, 07 Sep 2026 12:00:00 GMT</pubDate>
+    <description>A seven-year-old shortcut in a verification cache let someone conjure L-BTC out of nothing. The patch existed on 3 August. It was never released.</description>
+  </item>
+  <item>
+    <title>Sunday, September 6, 2026 — Two years of running the room, and nobody clapped</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-06-E795B8.html</link>
+    <guid isPermaLink="false">nostr-observer-E795B8</guid>
+    <pubDate>Sun, 06 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Car spent Saturday explaining why they stopped trying to build a Nostr developer community — and what Matthew 10:14 has to do with it.</description>
+  </item>
+  <item>
+    <title>Saturday, September 5, 2026 — A drone one minute down the street, and a day's work carried on</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-05-AFDCB8.html</link>
+    <guid isPermaLink="false">nostr-observer-AFDCB8</guid>
+    <pubDate>Sat, 05 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Terry Yiu dropped his wife at her office in central Kyiv on Friday morning. An hour later the building a minute away was hit. By the evening he was posting about a rewrite of his app.</description>
+  </item>
+</channel>
+</rss>
