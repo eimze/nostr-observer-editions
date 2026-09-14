@@ -360,11 +360,16 @@ blockquote::after  { content: close-quote; }
  */
 .backlink {
   order: -2;
+  display: flex; align-items: baseline; gap: 16px;
   font-family: var(--util); font-size: .7rem; letter-spacing: .13em;
   text-transform: uppercase; padding-bottom: 10px;
 }
 .backlink a { color: var(--ink-3); border-bottom: 0; }
 .backlink a:hover { color: var(--accent); }
+/* A separator drawn rather than typed, so the markup stays two plain links. */
+.backlink a + a::before {
+  content: "·"; margin-right: 16px; color: var(--rule);
+}
 .backlink.foot {
   order: 0; border-top: 1px solid var(--rule);
   padding-top: 18px; padding-bottom: 0; margin-top: 10px;
@@ -373,7 +378,8 @@ blockquote::after  { content: close-quote; }
 </head>
 <body>
 <div class="sheet">
-  <nav class="backlink"><a href="index.html">&larr; All editions</a></nav>
+  <nav class="backlink"><a href="index.html">&larr; All editions</a><a href="feed.xml">RSS</a></nav>
+
 
 
   <div class="folio">
@@ -668,7 +674,8 @@ blockquote::after  { content: close-quote; }
   </div>
 
 
-  <nav class="backlink foot"><a href="index.html">&larr; All editions</a></nav>
+
+  <nav class="backlink foot"><a href="index.html">&larr; All editions</a><a href="feed.xml">RSS</a></nav>
 </div>
 
 </body>
