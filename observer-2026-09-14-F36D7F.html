@@ -374,6 +374,20 @@ blockquote::after  { content: close-quote; }
   order: 0; border-top: 1px solid var(--rule);
   padding-top: 18px; padding-bottom: 0; margin-top: 10px;
 }
+
+/* Source links — the one link the paper is permitted to make.
+ *
+ * Every quotation wraps in a permalink to the note it came from, added by
+ * tools/link-sources.mjs BEFORE validate.mjs runs, so the validator proves
+ * each one points at an event actually read that day. Kept quiet: a dotted
+ * rule under inline quotes, nothing under a pulled blockquote, accent on
+ * hover. The hex lives in the href and never in the prose.
+ */
+a.src { border-bottom: 0; color: inherit; }
+a.src:has(blockquote) { display: block; }
+a.src q { border-bottom: 1px dotted var(--rule); }
+a.src:hover, a.src:hover q, a.src:hover blockquote { color: var(--accent); }
+a.src:hover q { border-bottom-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -409,18 +423,18 @@ blockquote::after  { content: close-quote; }
         <p class="dek">Passports, selfies, addresses, IBANs, full transaction histories. The request was forged. Nobody was required to check.</p>
         <p class="byline">The lead</p>
         <p class="first">Lyudmyla Kozlovska spent the weekend making an argument that nobody on this page wanted to have, and the facts did most of the work for her.</p>
-        <blockquote>This week #Revolut confirmed it handed over customers' passports, verification selfies, home addresses, IBANs and full transaction histories, including #Bitcoin, to a fake government request.</blockquote>
-        <p>The mechanism is the part worth sitting with. <q>The email came from a real government agency's domain, and Revolut complied because the rules told it to.</q> Under FATF rules written into US, EU and UK law, a regulated institution must keep this material and produce it promptly on a state request — with fines in the millions for delay, and none for handing over too much.</p>
-        <p>And then the sentence that turns a breach into a design: <q>Nobody is required to check whether the state behind the request is legitimate.</q></p>
-        <p>Her reading of who benefits is unsentimental: <q>The hackers and criminals are proxies of authoritarian governments.</q> The same pattern, she argues, now points at the data of Western citizens because it is free, easy, and nobody is held to account for it.</p>
-        <p>waxwing reported the only personal remedy available and its limits: <q>Closed my Revolut account earlier this year, seems like I was a bit too late. Who am I kidding, they're all exactly the same.</q></p>
+        <a class="src" href="https://njump.me/f8a9accaa7a13b804ae3159901fec379754f0340ff8325540c56fadaeba5c302"><blockquote>This week #Revolut confirmed it handed over customers' passports, verification selfies, home addresses, IBANs and full transaction histories, including #Bitcoin, to a fake government request.</blockquote></a>
+        <p>The mechanism is the part worth sitting with. <a class="src" href="https://njump.me/f8a9accaa7a13b804ae3159901fec379754f0340ff8325540c56fadaeba5c302"><q>The email came from a real government agency's domain, and Revolut complied because the rules told it to.</q></a> Under FATF rules written into US, EU and UK law, a regulated institution must keep this material and produce it promptly on a state request — with fines in the millions for delay, and none for handing over too much.</p>
+        <p>And then the sentence that turns a breach into a design: <a class="src" href="https://njump.me/f8a9accaa7a13b804ae3159901fec379754f0340ff8325540c56fadaeba5c302"><q>Nobody is required to check whether the state behind the request is legitimate.</q></a></p>
+        <p>Her reading of who benefits is unsentimental: <a class="src" href="https://njump.me/89dd50c20aeb38a96962d38e2ea190cedecb4a66813125ddc300e0d9c719ea9c"><q>The hackers and criminals are proxies of authoritarian governments.</q></a> The same pattern, she argues, now points at the data of Western citizens because it is free, easy, and nobody is held to account for it.</p>
+        <p>waxwing reported the only personal remedy available and its limits: <a class="src" href="https://njump.me/276098013e8ba72e723a9b913ca0ef1575c4a909eb46617d08c97e154016b07e"><q>Closed my Revolut account earlier this year, seems like I was a bit too late. Who am I kidding, they're all exactly the same.</q></a></p>
       </div>
       <div class="story">
         <h3 class="sub-head">The argument she actually picked</h3>
-        <p>The sharper exchange was with her own side. BTC Prague had posted a line built for a poster: <q>Bitcoin doesn't need adoption. It needs time. Those are different things.</q></p>
-        <p>Kozlovska would not have it. Bitcoin, she wrote, is made by people with families, and the community's habit of shrugging is expensive — <q>This careless "Bitcoin doesn't care" motto is very costly for our community.</q> Prague's own advocates get results; she wanted that taught rather than disowned. <q>Sorry, but I expect more from you, precisely because you are very successful leaders.</q></p>
-        <p>Walt Munny put the opposite case, respectfully and completely: energy belongs in building alternatives, not in playing a rigged game. <q>The system is lost and captured.</q></p>
-        <p>Her reply was the best line of the weekend: <q>You expect things from people who are capable of achieving them. Otherwise there is nothing to expect.</q></p>
+        <p>The sharper exchange was with her own side. BTC Prague had posted a line built for a poster: <a class="src" href="https://njump.me/53dcc5dfd0b754bdeaf6b6a2f621f375b3d651a36d110a2fbfd191bf17a059ab"><q>Bitcoin doesn't need adoption. It needs time. Those are different things.</q></a></p>
+        <p>Kozlovska would not have it. Bitcoin, she wrote, is made by people with families, and the community's habit of shrugging is expensive — <a class="src" href="https://njump.me/11d6f50808e1e06ed07e90d2599bea6163c2889041c96017918e80ebaee321a8"><q>This careless "Bitcoin doesn't care" motto is very costly for our community.</q></a> Prague's own advocates get results; she wanted that taught rather than disowned. <a class="src" href="https://njump.me/11d6f50808e1e06ed07e90d2599bea6163c2889041c96017918e80ebaee321a8"><q>Sorry, but I expect more from you, precisely because you are very successful leaders.</q></a></p>
+        <p>Walt Munny put the opposite case, respectfully and completely: energy belongs in building alternatives, not in playing a rigged game. <a class="src" href="https://njump.me/8d93d0a55a45a89e4fc84dba75945e24007797f5e4a880153a9166b736f5d3dc"><q>The system is lost and captured.</q></a></p>
+        <p>Her reply was the best line of the weekend: <a class="src" href="https://njump.me/a578564a66262d0365f8bfb1760d7a3971892fa12fd53144466afc9b018468c5"><q>You expect things from people who are capable of achieving them. Otherwise there is nothing to expect.</q></a></p>
       </div>
     </div>
 
@@ -429,19 +443,19 @@ blockquote::after  { content: close-quote; }
         <p class="kicker">Machines</p>
         <h2 class="main-head">Nobody agrees how frightened to be, and they are all arguing well</h2>
         <p class="first">The second thread of the day was an unusually good-tempered disagreement about artificial intelligence, conducted by people who normally build things rather than opine about them.</p>
-        <p>Matt Corallo opened by demolishing a comfort. <q>The claim that Chinese models are "just distilled western models" is obvious nonsense.</q> The models often end up better than what they supposedly copied, he noted, and K3 arrived when Fable had barely been available. His diagnosis of the belief is the sting:</p>
-        <blockquote>The distillation claim seems to basically be a fantasy of the western labs that want to think they're just that far ahead and Chinese people are all dumb copycats - no different than what tech thought of China 15-20 years ago.</blockquote>
-        <p>He added a detail that ought to end the argument on its own: <q>Astra is literally built on an old DeepSeek paper!</q></p>
-        <p>NostrLlama drew the economic conclusion — better open-weight models, on hardware built at home — and then asked the only question that matters to anyone holding equities: <q>This bubble will pop at some point - just when?</q></p>
+        <p>Matt Corallo opened by demolishing a comfort. <a class="src" href="https://njump.me/bfeab91efe7689c68bfe36ed4aa5279108b457c794b9ce67808386896f8ba06f"><q>The claim that Chinese models are "just distilled western models" is obvious nonsense.</q></a> The models often end up better than what they supposedly copied, he noted, and K3 arrived when Fable had barely been available. His diagnosis of the belief is the sting:</p>
+        <a class="src" href="https://njump.me/bfeab91efe7689c68bfe36ed4aa5279108b457c794b9ce67808386896f8ba06f"><blockquote>The distillation claim seems to basically be a fantasy of the western labs that want to think they're just that far ahead and Chinese people are all dumb copycats - no different than what tech thought of China 15-20 years ago.</blockquote></a>
+        <p>He added a detail that ought to end the argument on its own: <a class="src" href="https://njump.me/163afd83e58539d50cbfd0f3e3f75aa7d73267a30c061f5bfae7199778fd1338"><q>Astra is literally built on an old DeepSeek paper!</q></a></p>
+        <p>NostrLlama drew the economic conclusion — better open-weight models, on hardware built at home — and then asked the only question that matters to anyone holding equities: <a class="src" href="https://njump.me/0000b118ad7dfa240b5b287573566a2caf04c7dd92b3123ddfd30820b8132f61"><q>This bubble will pop at some point - just when?</q></a></p>
       </div>
       <div class="story">
         <h3 class="sub-head">How afraid, and of what</h3>
-        <p>waxwing declined to pick a side, which took more effort than picking one. The push toward fear, he wrote, <q>seems like it's being manufactured</q> — and yet:</p>
-        <blockquote>If agents become as much smarter than us as we are compared to, say, rodents, then it becomes nearly impossible to predict the outcome.</blockquote>
+        <p>waxwing declined to pick a side, which took more effort than picking one. The push toward fear, he wrote, <a class="src" href="https://njump.me/fbaa7464ebda731cf5cb5d57ad6b014da0df2e269f565f19c99ae2d138962de9"><q>seems like it's being manufactured</q></a> — and yet:</p>
+        <a class="src" href="https://njump.me/fbaa7464ebda731cf5cb5d57ad6b014da0df2e269f565f19c99ae2d138962de9"><blockquote>If agents become as much smarter than us as we are compared to, say, rodents, then it becomes nearly impossible to predict the outcome.</blockquote></a>
         <p>What he is confident about is that the nuclear analogy fails: deployment is too easy and too profitable for any disarmament agreement to hold.</p>
-        <p>Rusty Russell supplied the historian's caution: <q>Yes, bad outcomes definitely possible: they've happened with previous technologies, too. But extrapolating to super-intelligent machines has a long history: the real damage was elsewhere.</q></p>
-        <p>Seth Michael Steele offered the cleanest test anyone has written for reading a safety proposal: <q>if it limits who may train or release, it's a moat. If it limits what any of them may build, it's safety.</q></p>
-        <p>And Gzuuus, on the recent package-registry incidents, refused the passive voice entirely: <q>LLMs do not desire, they hacked websites because OpenAI/Anthropic let them.</q></p>
+        <p>Rusty Russell supplied the historian's caution: <a class="src" href="https://njump.me/8025ff59f21104ccd96f16da33e08943fe3b6002d414e38c13a8ea53b92600f8"><q>Yes, bad outcomes definitely possible: they've happened with previous technologies, too. But extrapolating to super-intelligent machines has a long history: the real damage was elsewhere.</q></a></p>
+        <p>Seth Michael Steele offered the cleanest test anyone has written for reading a safety proposal: <a class="src" href="https://njump.me/6c3fbc763676acb753683d06646022746916909bfa8415ec235c82ff988427f0"><q>if it limits who may train or release, it's a moat. If it limits what any of them may build, it's safety.</q></a></p>
+        <p>And Gzuuus, on the recent package-registry incidents, refused the passive voice entirely: <a class="src" href="https://njump.me/a9cd0819ada0fdb7c317650e526ca3fbdff7fa1884920877330b460f83955ee7"><q>LLMs do not desire, they hacked websites because OpenAI/Anthropic let them.</q></a></p>
       </div>
     </div>
 
@@ -460,8 +474,8 @@ blockquote::after  { content: close-quote; }
         <p class="kicker">On the record</p>
         <h3 class="sub-head">Three men, thirty-odd years ago</h3>
         <p>The Cypherpunk Quotes account has no idea what day it is, which is why its timing keeps being perfect. On the day of the Revolut disclosure it ran Eric Hughes, from 1993:</p>
-        <blockquote>We must defend our own privacy if we expect to have any. We must come together and create systems which allow anonymous transactions to take place.</blockquote>
-        <p>Then Hal Finney, the same year, on why David Chaum looked to cryptography rather than to legislation. Then Tim May, from 1988, predicting that computers were <q>on the verge of providing the ability for individuals and groups to communicate and interact with each other in a totally anonymous manner</q>.</p>
+        <a class="src" href="https://njump.me/62123a444679111718e1f598ceeb23404d5b25cb29c06adea79f502a065db7dc"><blockquote>We must defend our own privacy if we expect to have any. We must come together and create systems which allow anonymous transactions to take place.</blockquote></a>
+        <p>Then Hal Finney, the same year, on why David Chaum looked to cryptography rather than to legislation. Then Tim May, from 1988, predicting that computers were <a class="src" href="https://njump.me/d97a83dc409dda3c6e9dca8c8afb81ea0bd9937d77ba3e9108f6f269a22067f4"><q>on the verge of providing the ability for individuals and groups to communicate and interact with each other in a totally anonymous manner</q></a>.</p>
         <p class="note">Thirty-three years on, the machinery exists and the default is still a bank emailing your passport to whoever asks in the right font.</p>
       </div>
     </div>
@@ -475,12 +489,12 @@ blockquote::after  { content: close-quote; }
       <h2 class="main-head">What are human beings for</h2>
       <p class="dek">Gigi marked twenty-six passages in one essay on Sunday. Amanda, separately and without reference to him, quoted from the same piece. It is the argument underneath every other story on this page.</p>
       <p>The essay is Charles Eisenstein's <em>The Lost Subject: AI and the Human</em>, and the passages chosen make its case without assistance. It starts with what a proof is for:</p>
-      <blockquote>The purpose of science and math is not only—not even primarily—to produce results. It is also to produce understanding.</blockquote>
-      <p>The worry follows immediately. <q>No understanding will be necessary to produce useful results</q> — and once that is true, <q>as understanding becomes unnecessary to produce results, scientific education and training would lose its pragmatic motivation</q>. Nobody would be paid to understand anything.</p>
-      <p>From there the essay turns, unexpectedly, to loneliness, and this is the part Gigi marked most heavily. <q>We feel lonely when we carry an understanding that no one else shares.</q> Machines cannot relieve it, because <q>Because AIs lack a subjective experience to share, they cannot meet the need for communion</q>. What is left is a definition worth keeping: <q>To know and to be known—I cannot think of a better definition of intimacy than that</q>.</p>
-      <p>Two of the marks are diagnoses rather than arguments. <q>Young men are the loneliest of all demographics.</q> And, of what a certain kind of progress already cost us: <q>People became strangers and nature became scenery.</q></p>
-      <p>Amanda pulled a different line from the same essay, and it is the one that will stick: <q>AI can write a thousand books in a day, a million lines of poetry, but is it poetry if no one reads it? No. It is just bits churning in a data center.</q></p>
-      <p>Gigi's last mark is not a complaint. It is a statement of what to build for: <q>In the future we are preparing, we value the element that a conscious, feeling subject adds to what a machine could otherwise do.</q></p>
+      <a class="src" href="https://njump.me/fa512679c3885d0fc5424332e9579f9ddb84edef9244378a44e3c241eb2accba"><blockquote>The purpose of science and math is not only—not even primarily—to produce results. It is also to produce understanding.</blockquote></a>
+      <p>The worry follows immediately. <a class="src" href="https://njump.me/04fde33b85c594a1c3a0f3e6f86e8f07b6391f9a4cdae16c2918d73e91c8fb7d"><q>No understanding will be necessary to produce useful results</q></a> — and once that is true, <a class="src" href="https://njump.me/c420869b87e9b427e0ba352cf2f4187922a830e2cfba361eb9ff397b70aa2a7f"><q>as understanding becomes unnecessary to produce results, scientific education and training would lose its pragmatic motivation</q></a>. Nobody would be paid to understand anything.</p>
+      <p>From there the essay turns, unexpectedly, to loneliness, and this is the part Gigi marked most heavily. <a class="src" href="https://njump.me/aafd19d01504ed9f2658c43437c63f778875601fdcdc919565406dbcf6343f20"><q>We feel lonely when we carry an understanding that no one else shares.</q></a> Machines cannot relieve it, because <a class="src" href="https://njump.me/07e28223e77a8731a6d8a1417f09fda3624806ab35678a7007cf58a01d8e7f37"><q>Because AIs lack a subjective experience to share, they cannot meet the need for communion</q></a>. What is left is a definition worth keeping: <a class="src" href="https://njump.me/832bfaaf587e051a2b1fe498850a0b257253ab33894a52dbbc048ecb3c4be054"><q>To know and to be known—I cannot think of a better definition of intimacy than that</q></a>.</p>
+      <p>Two of the marks are diagnoses rather than arguments. <a class="src" href="https://njump.me/04cf96752757e83914ef8c76815f0410542859841f360d28ee7317445d3b76aa"><q>Young men are the loneliest of all demographics.</q></a> And, of what a certain kind of progress already cost us: <a class="src" href="https://njump.me/55b2a3268adfd2a139b62bc914fe73f6bc41f4fe570c6b5ee3055e20b1d9d59a"><q>People became strangers and nature became scenery.</q></a></p>
+      <p>Amanda pulled a different line from the same essay, and it is the one that will stick: <a class="src" href="https://njump.me/4c7745d0cd42f75dfd4d45ff4bc7fcf7a0efc8c3886ba68712afcb9544e59d74"><q>AI can write a thousand books in a day, a million lines of poetry, but is it poetry if no one reads it? No. It is just bits churning in a data center.</q></a></p>
+      <p>Gigi's last mark is not a complaint. It is a statement of what to build for: <a class="src" href="https://njump.me/8adcb41f0c3da10bce492d8a4d99c77d58f7858ef44ba0c5eade8c2e8283ebdc"><q>In the future we are preparing, we value the element that a conscious, feeling subject adds to what a machine could otherwise do.</q></a></p>
     </div>
   </div>
 
@@ -500,19 +514,19 @@ blockquote::after  { content: close-quote; }
         <div class="story">
           <h3 class="sub-head">A messenger that is not a Nostr client</h3>
           <p>Cody released PsstPsst for iOS, Android, macOS, Linux and Windows — everything but iOS actually downloadable — and was candid that the Linux and Windows builds are untested by their own hand.</p>
-          <p>The interesting decision is architectural: built on NIP-17 with NIP-4e, separating encryption keys from identity keys, which <q>means it isn't compatible with most existing Nostr clients</q>. By Monday morning reya confirmed messages were arriving through it, and a crash report had already been reproduced by a second person.</p>
+          <p>The interesting decision is architectural: built on NIP-17 with NIP-4e, separating encryption keys from identity keys, which <a class="src" href="https://njump.me/87bb37d23ec7df03b28fdcf923a5c5587e29e1ea6aee37b111760b32a138c1d2"><q>means it isn't compatible with most existing Nostr clients</q></a>. By Monday morning reya confirmed messages were arriving through it, and a crash report had already been reproduced by a second person.</p>
         </div>
       </div>
 
       <div class="cell">
         <div class="story">
           <h3 class="sub-head">Human infrastructure</h3>
-          <p>Bitfest made the case that this page has been circling for a week: <q>Local Bitcoin meetups are infrastructure too. Not protocol infrastructure. Human infrastructure.</q> They are where newcomers ask questions and online conversation turns into people who know each other.</p>
-          <p>On the recurring temptation to keep the doors shut, the same account was blunt: <q>Doors should be open to all, and people will come over time. This attitude to any and everyone/situation is far more Fiat mindset than it is Bitcoin.</q></p>
+          <p>Bitfest made the case that this page has been circling for a week: <a class="src" href="https://njump.me/5e87a6c82cb66d51bdb6dd1a619fcc8bd7a3224e6ed5c185a14cd53faee7ba03"><q>Local Bitcoin meetups are infrastructure too. Not protocol infrastructure. Human infrastructure.</q></a> They are where newcomers ask questions and online conversation turns into people who know each other.</p>
+          <p>On the recurring temptation to keep the doors shut, the same account was blunt: <a class="src" href="https://njump.me/da71d98d0e0a80a4eb20e609e203b292493ad8688f9fa7fa9ad2d9bb11b53b3d"><q>Doors should be open to all, and people will come over time. This attitude to any and everyone/situation is far more Fiat mindset than it is Bitcoin.</q></a></p>
         </div>
         <div class="story">
           <h3 class="small-head">Nostrshire</h3>
-          <p>Ben Arc is preparing talks and workshops for what he bills as <q>The biggest Nostr conference of 2026</q>, on 19 November — Napstr, Nostr as a discovery layer, and the zapswitch.</p>
+          <p>Ben Arc is preparing talks and workshops for what he bills as <a class="src" href="https://njump.me/2d1a507c88b78816c0975e36433ee098d566d4613064836e16ee389ce686ca01"><q>The biggest Nostr conference of 2026</q></a>, on 19 November — Napstr, Nostr as a discovery layer, and the zapswitch.</p>
         </div>
       </div>
 
@@ -521,7 +535,7 @@ blockquote::after  { content: close-quote; }
           <h3 class="sub-head">Elsewhere in the shop</h3>
           <p><strong>Hivetalk</strong> shipped its Stage 5 release: live polls in every permanent room with no paid plan required, server-side vote counting, plus recording and subscriptions.</p>
           <p><strong>fiatjaf</strong> explained that the Pomegranate Central server acts as a relay so it can do NIP-46 bunker signing quickly, conceded it should not be relaying those events, and asked to be told about anything actually harmful rather than merely untidy.</p>
-          <p><strong>hodlbod</strong>, on a client that has not moved: <q>Primal is stuck in the past with insecure dms</q>.</p>
+          <p><strong>hodlbod</strong>, on a client that has not moved: <a class="src" href="https://njump.me/00000804c2bd03f710623a36518cefe81be07dbe7adee984c18412ff08c07164"><q>Primal is stuck in the past with insecure dms</q></a>.</p>
           <p class="note">Also announced: a v4v music show at seven this evening, and Noderunners Radio, which played 366 songs on Sunday — fourteen of them requested and paid for by listeners.</p>
         </div>
       </div>
@@ -569,7 +583,7 @@ blockquote::after  { content: close-quote; }
         </div>
         <div class="story">
           <h3 class="small-head">A number to check</h3>
-          <p>Plunger, doing back-of-envelope work on global money: <q>I'm shocked that the Yuan is 33% of the global money supply.</q> The conclusion drawn — that a 0.3% shift would put bitcoin at $300,000 — is offered here as arithmetic performed in public, not as a forecast.</p>
+          <p>Plunger, doing back-of-envelope work on global money: <a class="src" href="https://njump.me/7c6f971e33c4c8034537520477471814e3adcbe18e921e155ebd1029030d64c0"><q>I'm shocked that the Yuan is 33% of the global money supply.</q></a> The conclusion drawn — that a 0.3% shift would put bitcoin at $300,000 — is offered here as arithmetic performed in public, not as a forecast.</p>
         </div>
       </div>
     </div>
@@ -587,9 +601,9 @@ blockquote::after  { content: close-quote; }
         <div class="story">
           <h3 class="sub-head">Bebe is a write-off</h3>
           <p class="first">GlobalTraces have lived in an expedition truck for five years. On Sunday they posted the recovery of it from a roadside in Kazakhstan.</p>
-          <p>The cause was mundane and vicious: driving through a toll booth under construction, they clipped an unmarked concrete plinth that had set <q>like a razor</q> and sliced a tyre open. That turned them into passengers, into a post at about 30kmh, and then over.</p>
-          <p>Everyone walked away. The driver took concussion, whiplash, and a night in a Kazakh hospital after X-rays and CT scans. Watching the truck come back <q>all bent and twisted and out of shape, cut really deep</q>.</p>
-          <blockquote>But she gave us five years of incredible adventures and, when the chips were down, she kept us safe so we all walked away.</blockquote>
+          <p>The cause was mundane and vicious: driving through a toll booth under construction, they clipped an unmarked concrete plinth that had set <a class="src" href="https://njump.me/96be9f189218f52f5f16eb6a2954b71d3d33b6622d3f9a4ea39eba0927830d1e"><q>like a razor</q></a> and sliced a tyre open. That turned them into passengers, into a post at about 30kmh, and then over.</p>
+          <p>Everyone walked away. The driver took concussion, whiplash, and a night in a Kazakh hospital after X-rays and CT scans. Watching the truck come back <a class="src" href="https://njump.me/6f958a1c1be43ce3996901316eb4b2807c0f52a12e013c75213f6b28494591b4"><q>all bent and twisted and out of shape, cut really deep</q></a>.</p>
+          <a class="src" href="https://njump.me/6f958a1c1be43ce3996901316eb4b2807c0f52a12e013c75213f6b28494591b4"><blockquote>But she gave us five years of incredible adventures and, when the chips were down, she kept us safe so we all walked away.</blockquote></a>
         </div>
       </div>
 
@@ -600,7 +614,7 @@ blockquote::after  { content: close-quote; }
         </figure>
         <div class="story">
           <h3 class="small-head">Preparation</h3>
-          <p>Cahlen learned a new tune for the pennywhistle, on the grounds that busking <q>may be one of the few ways for me to acquire food once we're deep into the Borg takeover</q>.</p>
+          <p>Cahlen learned a new tune for the pennywhistle, on the grounds that busking <a class="src" href="https://njump.me/b9647f46878d7339783ea4b08e7b89066de11d72d357ec3d5cbdc4734e316323"><q>may be one of the few ways for me to acquire food once we're deep into the Borg takeover</q></a>.</p>
         </div>
       </div>
 
@@ -608,7 +622,7 @@ blockquote::after  { content: close-quote; }
         <div class="story">
           <h3 class="sub-head">Counsel, freely given</h3>
           <p>Somebody described a struggle with a habit and the guilt attached to it, and Lois answered at length and without a trace of lecture. Watch the thought without judgement; rest in the heart; hug the dog every time the urge arrives.</p>
-          <p>The instruction underneath it: <q>wanting to get high is just a thought</q>, and <q>if you pause every time guilt arises, it will eventually dissipate as you realize it carrys no weight</q>.</p>
+          <p>The instruction underneath it: <a class="src" href="https://njump.me/418d5420a49f408332f6854f4fdef1f36b650e4c070cbbfbf6004e1462cc9bf4"><q>wanting to get high is just a thought</q></a>, and <a class="src" href="https://njump.me/418d5420a49f408332f6854f4fdef1f36b650e4c070cbbfbf6004e1462cc9bf4"><q>if you pause every time guilt arises, it will eventually dissipate as you realize it carrys no weight</q></a>.</p>
           <p class="note">It is the kind of exchange that never appears in an account of what a social network is for.</p>
         </div>
         <div class="story">
@@ -620,7 +634,7 @@ blockquote::after  { content: close-quote; }
       <div class="cell">
         <div class="story">
           <h3 class="sub-head">The telephone</h3>
-          <p>Leo, on a device kept permanently silent: the reasoning is that anything important would arrive as a text. <q>It's never important</q>.</p>
+          <p>Leo, on a device kept permanently silent: the reasoning is that anything important would arrive as a text. <a class="src" href="https://njump.me/83227eaa4a57e694b4b4fc21b52fb38f98527fbaa72b5731939753aee5f98ac2"><q>It's never important</q></a>.</p>
         </div>
         <div class="story">
           <h3 class="sub-head">Monday links</h3>
@@ -628,7 +642,7 @@ blockquote::after  { content: close-quote; }
         </div>
         <div class="story">
           <h3 class="small-head">On being worth having around</h3>
-          <p>Adam O'Brien, relaying an argument about what survives automation: <q>Your credentials mean nothing if dinner with you is awkward 🍽️</q></p>
+          <p>Adam O'Brien, relaying an argument about what survives automation: <a class="src" href="https://njump.me/29ca541a22e387e2551030173fb512d0adc5f432b9a2f7c9deef6d67888bded7"><q>Your credentials mean nothing if dinner with you is awkward 🍽️</q></a></p>
         </div>
       </div>
 
