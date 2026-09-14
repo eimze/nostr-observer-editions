@@ -392,11 +392,19 @@ a.src:hover q { border-bottom-color: var(--accent); }
 /* A picture credit that links back to the note the photograph came with. */
 figcaption .credit a.src { border-bottom: 1px dotted var(--rule); }
 figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
+
+/* The reader's own name in the dateline, linked to their profile.
+ * Takes the accent — the colour this paper already uses for kickers and for
+ * "this points somewhere" — because a rule in --rule is invisible on the dark
+ * ground, and this is the one link on the page meant to be found by strangers. */
+.dateline a.src { color: var(--accent); border-bottom: 1px dotted var(--accent); }
+.dateline a.src:hover { border-bottom-style: solid; }
 </style>
 </head>
 <body>
 <div class="sheet">
   <nav class="backlink"><a href="index.html">&larr; All editions</a><a href="feed.xml">RSS</a></nav>
+
 
 
 
@@ -412,7 +420,7 @@ figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
   </header>
 
   <div class="dateline">
-    <span>Ranked as EZ</span>
+    <span>Ranked as <a class="src" href="https://njump.me/npub1s07s0h5mwcenfnyagme8shp9trnv964lulgvdmppgenuhtk9p4rsueuk63">EZ</a></span>
     <span>659 events, 14 desks</span>
     <span>218 voices</span>
   </div>
@@ -690,6 +698,7 @@ figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
   <div class="band" style="border-bottom:0">
     <p class="note">Printed for EZ from 659 events across fourteen desks, ranked through their own web of trust and read once more without it as a control. Nothing on this page was chosen by us. Photographs remain on their authors' servers and are shown here by reference.</p>
   </div>
+
 
 
 
