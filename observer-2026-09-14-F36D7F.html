@@ -388,6 +388,10 @@ a.src:has(blockquote) { display: block; }
 a.src q { border-bottom: 1px dotted var(--rule); }
 a.src:hover, a.src:hover q, a.src:hover blockquote { color: var(--accent); }
 a.src:hover q { border-bottom-color: var(--accent); }
+
+/* A picture credit that links back to the note the photograph came with. */
+figcaption .credit a.src { border-bottom: 1px dotted var(--rule); }
+figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -462,7 +466,7 @@ a.src:hover q { border-bottom-color: var(--accent); }
     <div class="col span-4">
       <figure>
         <img src="https://blossom.daniel.camera/144c4814fbb6e3873dcf1fb3d707944a8c2d5a9794fbd761648b7fae3701a85d.jpg" alt="A photograph danielw took of the first big snow of the season in La Plata Canyon, captured in October 2021.">
-        <figcaption>danielw is still working through an archive: the first big snow of the season down La Plata Canyon, taken in October 2021.<span class="credit">Picture: danielw</span></figcaption>
+        <figcaption>danielw is still working through an archive: the first big snow of the season down La Plata Canyon, taken in October 2021.<span class="credit"><a class="src" href="https://njump.me/ded7dfce93b93bde88481184c813374b04a882176713951cdfd34382fda8ed6c">Picture: danielw</a></span></figcaption>
       </figure>
       <div class="story">
         <p class="kicker">The instrument</p>
@@ -509,7 +513,7 @@ a.src:hover q { border-bottom-color: var(--accent); }
       <div class="cell">
         <figure>
           <img src="https://blossom.jumble.social/b5761bc7a6986333d27efc67dd9fec204e08b6b0828dd8d36a1abb64a0bc6f15.png" alt="A screenshot Cody posted of PsstPsst, the messaging app they built over three months.">
-          <figcaption>One of two screenshots Cody filed with the announcement of PsstPsst, a messaging app they describe as three months of vibe coding.<span class="credit">Filed by Cody</span></figcaption>
+          <figcaption>One of two screenshots Cody filed with the announcement of PsstPsst, a messaging app they describe as three months of vibe coding.<span class="credit"><a class="src" href="https://njump.me/87bb37d23ec7df03b28fdcf923a5c5587e29e1ea6aee37b111760b32a138c1d2">Filed by Cody</a></span></figcaption>
         </figure>
         <div class="story">
           <h3 class="sub-head">A messenger that is not a Nostr client</h3>
@@ -610,7 +614,7 @@ a.src:hover q { border-bottom-color: var(--accent); }
       <div class="cell">
         <figure>
           <img src="https://blossom.primal.net/aece220a373487d5cd19a34b9b1ea21ae17565e255b6e600e4fbdb47eb246b58.png" alt="A chart Arthur Amendt posted from their home automation system showing greenhouse temperature overnight.">
-          <figcaption>Arthur Amendt's greenhouse, as recorded by their home automation: the heater came on at 3:35 in the morning, having reached 35°C inside the day before with the door shut.<span class="credit">Filed by Arthur Amendt</span></figcaption>
+          <figcaption>Arthur Amendt's greenhouse, as recorded by their home automation: the heater came on at 3:35 in the morning, having reached 35°C inside the day before with the door shut.<span class="credit"><a class="src" href="https://njump.me/2daea38375b75831c1281fa8d04e78612a7bb12d9c532b69db7229bf241717b9">Filed by Arthur Amendt</a></span></figcaption>
         </figure>
         <div class="story">
           <h3 class="small-head">Preparation</h3>
