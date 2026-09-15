@@ -6,7 +6,14 @@
   <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
   <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 14 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 15 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Tuesday, September 15, 2026 — 126 changes later, the CLARITY Act gets its vote</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-15-1747D7.html</link>
+    <guid isPermaLink="false">nostr-observer-1747D7</guid>
+    <pubDate>Tue, 15 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Senate Republicans released what they called the final draft on Monday. The procedural vote is today at 2pm Eastern.</description>
+  </item>
   <item>
     <title>Monday, September 14, 2026 — Revolut handed it all over, and the rules say it was right to</title>
     <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-14-F36D7F.html</link>
