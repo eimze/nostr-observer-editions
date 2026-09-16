@@ -6,7 +6,14 @@
   <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
   <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
   <language>en</language>
-  <lastBuildDate>Tue, 15 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 16 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Wednesday, September 16, 2026 — Attackers claim 147 GB of Revolut data</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-16-A5F896.html</link>
+    <guid isPermaLink="false">nostr-observer-A5F896</guid>
+    <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
+    <description>A forged Italian government order reportedly opened the bank’s customer files, and the compliance rules gave it no good way to tell.</description>
+  </item>
   <item>
     <title>Tuesday, September 15, 2026 — 126 changes later, the CLARITY Act gets its vote</title>
     <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-15-1747D7.html</link>
