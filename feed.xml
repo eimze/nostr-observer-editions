@@ -6,7 +6,14 @@
   <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
   <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 16 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 17 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Thursday, September 17, 2026 — The exit button is a file</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-17-7C0584.html</link>
+    <guid isPermaLink="false">nostr-observer-7C0584</guid>
+    <pubDate>Thu, 17 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Ditto can gather a Nostr history onto a device and send it back to a different relay. The useful part is the restore. The limits matter too.</description>
+  </item>
   <item>
     <title>Wednesday, September 16, 2026 — Attackers claim 147 GB of Revolut data</title>
     <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-16-A5F896.html</link>
