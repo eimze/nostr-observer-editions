@@ -6,7 +6,14 @@
   <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
   <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 17 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 18 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Friday, September 18, 2026 — After the theft, one builder stays on Liquid</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-18-0F902D.html</link>
+    <guid isPermaLink="false">nostr-observer-0F902D</guid>
+    <pubDate>Fri, 18 Sep 2026 12:00:00 GMT</pubDate>
+    <description>OceanSlim argues that the contract designs can outlast the chain they run on. Elsewhere in the same reading, users are still asking how to get their money out.</description>
+  </item>
   <item>
     <title>Thursday, September 17, 2026 — The exit button is a file</title>
     <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-17-7C0584.html</link>
