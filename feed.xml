@@ -6,7 +6,14 @@
   <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
   <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
   <language>en</language>
-  <lastBuildDate>Fri, 18 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 20 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Sunday, September 20, 2026 — A guitar kept since 1979 changes hands</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-20-3BEA14.html</link>
+    <guid isPermaLink="false">nostr-observer-3BEA14</guid>
+    <pubDate>Sun, 20 Sep 2026 12:00:00 GMT</pubDate>
+    <description>After Joe Martin’s show in Flore, the organiser went home and came back with a Fylde. The gift came with a wish: take it on tour.</description>
+  </item>
   <item>
     <title>Friday, September 18, 2026 — After the theft, one builder stays on Liquid</title>
     <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-18-0F902D.html</link>
