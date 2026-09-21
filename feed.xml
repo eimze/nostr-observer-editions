@@ -6,7 +6,14 @@
   <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
   <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 20 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 21 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Monday, September 21, 2026 — Routstr adds Jev. The operator still matters.</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-21-98214D.html</link>
+    <guid isPermaLink="false">nostr-observer-98214D</guid>
+    <pubDate>Mon, 21 Sep 2026 12:00:00 GMT</pubDate>
+    <description>The classifier can now be paid for in sats. In the discussion around its arrival, redshift spells out what users still have to trust about a provider.</description>
+  </item>
   <item>
     <title>Sunday, September 20, 2026 — A guitar kept since 1979 changes hands</title>
     <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-20-3BEA14.html</link>
