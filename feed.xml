@@ -6,7 +6,14 @@
   <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
   <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 21 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 22 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Tuesday, September 22, 2026 — White Noise returns. The group stays together.</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-22-A1CF5A.html</link>
+    <guid isPermaLink="false">nostr-observer-A1CF5A</guid>
+    <pubDate>Tue, 22 Sep 2026 12:00:00 GMT</pubDate>
+    <description>New native apps for iOS and Android put offline catch-up and reliable group conversations at the centre of the release. The first audience is Nostr.</description>
+  </item>
   <item>
     <title>Monday, September 21, 2026 — Routstr adds Jev. The operator still matters.</title>
     <link>https://eimze.github.io/nostr-observer-editions/observer-2026-09-21-98214D.html</link>
