@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Nostr Observer — Saturday, October 3, 2026</title>
+<style>
+/* GENERATED FILE - do not edit. Source: generator/src/main/resources/house.css
+   Regenerate: tools/sync-skill.sh */
+/* The Nostr Observer — house stylesheet.
+ *
+ * Tokens and primitives, not a layout. The generator composes the page out of
+ * these each morning; the point of the file is that it never has to reinvent a
+ * palette, a type scale, or the dark-theme handling.
+ *
+ * THEMES: three states, not two. An explicit choice stamps data-theme on <html>;
+ * the default "system" setting stamps nothing, so prefers-color-scheme is the
+ * only separator. Every colour is defined on bare :root first and only
+ * REDEFINED in the other two blocks — a colour whose sole definition sits behind
+ * a media query renders one theme's text on the other theme's ground.
+ */
+
+:root {
+  --paper: #FAF8F3;
+  --paper-2: #F2EFE8;
+  --ink: #16121B;
+  --ink-2: #4C4553;
+  --ink-3: #6E6675;
+  --rule: #C8C1CC;
+  --rule-soft: #E0DAE2;
+  --accent: #57277F;
+  --spot: #9C2B24;
+  --reverse-bg: #16121B;
+  --reverse-ink: #F5F1EC;
+  --reverse-ink-2: #A79DB0;
+  --reverse-spot: #E38375;
+
+  --serif: "Times New Roman", Times, "Liberation Serif", "Nimbus Roman", serif;
+  --body: Georgia, "Liberation Serif", "Times New Roman", Times, serif;
+  --util: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #131017;
+    --paper-2: #1B1721;
+    --ink: #EDE7E0;
+    --ink-2: #B4ABBB;
+    --ink-3: #928A99;
+    --rule: #3B3444;
+    --rule-soft: #2A2432;
+    --accent: #C6A2E8;
+    --spot: #E38375;
+    --reverse-bg: #241E2E;
+    --reverse-ink: #F3EEEA;
+    --reverse-ink-2: #B0A5BC;
+  --reverse-spot: #E38375;
+    --reverse-spot: #E38375;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #131017;
+  --paper-2: #1B1721;
+  --ink: #EDE7E0;
+  --ink-2: #B4ABBB;
+  --ink-3: #928A99;
+  --rule: #3B3444;
+  --rule-soft: #2A2432;
+  --accent: #C6A2E8;
+  --spot: #E38375;
+  --reverse-bg: #241E2E;
+  --reverse-ink: #F3EEEA;
+  --reverse-ink-2: #B0A5BC;
+}
+
+* { box-sizing: border-box; }
+
+/* An explicit background: the viewer paints its own ground behind the page, so
+ * a transparent body silently borrows the host's theme. */
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* THE FOLIO GOES ON TOP, wherever the writer put it.
+ *
+ * A folio is the thin line of standing detail a newspaper sets ABOVE its
+ * nameplate -- volume and number, the date, the price. Printed below it
+ * instead, it stops being a folio and becomes a block of metadata standing
+ * between the reader and the first headline, and on a phone that block is
+ * eight lines deep and pushes the lead off the screen.
+ *
+ * The prompt asks for it on top, but placement is markup and the prompt is
+ * advice; one edition put it there and the next did not. `order: -1` settles
+ * it in the stylesheet, and costs nothing on an edition that already had it
+ * right. */
+.sheet { max-width: 1240px; margin: 0 auto; padding: 20px 22px 72px; display: flex; flex-direction: column; }
+.sheet > .folio { order: -1; }
+
+/* --- type ------------------------------------------------------------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+p { margin: 0; }
+a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.kicker {
+  font-family: var(--util); font-size: .72rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+.byline {
+  font-family: var(--util); font-size: .72rem; letter-spacing: .11em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.dek { font-size: .95rem; line-height: 1.45; color: var(--ink-2); font-style: italic; }
+.note { font-size: .8rem; line-height: 1.45; color: var(--ink-3); font-style: italic; }
+
+.lead-head { font-size: clamp(1.9rem, 3.1vw, 2.7rem); }
+.main-head { font-size: clamp(1.6rem, 2.5vw, 2.15rem); }
+.sub-head  { font-size: 1.28rem; }
+.small-head { font-size: 1.02rem; }
+
+/* --- masthead --------------------------------------------------------- */
+
+.masthead {
+  border-top: 5px solid var(--ink); border-bottom: 1px solid var(--ink);
+  padding: 18px 0 12px; text-align: center;
+}
+.masthead h1 {
+  font-size: clamp(2.3rem, 7.6vw, 5.1rem);
+  letter-spacing: .015em; text-transform: uppercase; line-height: .92;
+}
+.masthead .the {
+  font-size: .44em; display: block; letter-spacing: .42em;
+  margin-bottom: .28em; text-indent: .42em; color: var(--ink-2);
+}
+.motto {
+  margin-top: 14px; font-family: var(--util); font-size: .7rem;
+  letter-spacing: .28em; text-transform: uppercase; color: var(--ink-3);
+}
+/* Three columns, and the middle one is CENTRED on the page.
+ *
+ * `space-between` was the obvious way to set these rows and it is subtly the
+ * wrong one: it centres the middle span only when the two beside it happen to
+ * be the same width, so the date drifts left or right by whatever the window
+ * stamp and the voice count weigh that morning. A `1fr auto 1fr` grid pins it
+ * to the centre of the sheet, under the middle of the nameplate, whatever sits
+ * either side -- including nothing at all, which is the case for the folio's
+ * right-hand slot today. */
+.folio, .dateline {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 3px 12px; align-items: baseline;
+  font-family: var(--util); font-size: .7rem; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.folio > :nth-child(2), .dateline > :nth-child(2) { text-align: center; }
+.folio > :nth-child(3), .dateline > :nth-child(3) { text-align: right; }
+
+/* A row of two is centre-and-right, not left-and-centre.
+ *
+ * The folio's left slot is empty -- there is no volume number and no cover
+ * price -- so the row carries two spans where the grid expects three, and by
+ * source order they would land in columns one and two. Written this way, the
+ * markup stays free of an empty `<span>` whose only job is to push the next
+ * one along, and the date still sits under the middle of the nameplate. */
+.folio > :first-child:nth-last-child(2) { grid-column: 2; text-align: center; }
+.folio > :nth-child(2):nth-last-child(1) { grid-column: 3; text-align: right; }
+
+/* COLLAPSE WHEN IT MUST, AND NOT ONE PIXEL SOONER.
+ *
+ * These rows used to stack below 720px along with the columns, because that is
+ * where everything else on the page breaks. Measured, they had no need to: the
+ * dateline's three spans hold one line down to 528px and the folio's two down
+ * to 364px, so the shared breakpoint was stacking the dateline 190px early and
+ * the folio 350px early -- three lines of standing detail on a screen with room
+ * for one.
+ *
+ * So they get their own breakpoints, one each, set just under what they
+ * measure. The folio's is below any phone in circulation, which is the point:
+ * it is there for a 320px screen, not for a 390px one. Stacked, they centre --
+ * the same symmetry the nameplate has, with the centred span still centred.
+ */
+/* Below the fold, the outer tracks stop paying for each other.
+ *
+ * `1fr auto 1fr` centres exactly, and it does it by making the right-hand track
+ * as wide as the left -- so "234 voices", which needs 69px, reserves the 170px
+ * that "Ranked as Vitor Pamplona" needs beside it. That is a hundred wasted
+ * pixels, and it is why a row whose text measures 400px was breaking at 528.
+ *
+ * On a phone the page is one column and there is no nameplate centre to line up
+ * against pixel-for-pixel, so the tracks size to their contents and the middle
+ * span is centred in what is left. The row then holds one line to about 430px
+ * instead of 528. Above this the exact version is back. */
+@media (max-width: 720px) {
+  .dateline { grid-template-columns: auto 1fr auto; }
+}
+
+@media (max-width: 430px) {
+  .dateline { grid-template-columns: 1fr; text-align: center; }
+  .dateline > :nth-child(3) { text-align: center; }
+}
+
+@media (max-width: 380px) {
+  .folio { grid-template-columns: 1fr; text-align: center; }
+  .folio > :first-child:nth-last-child(2), .folio > :nth-child(2):nth-last-child(1) {
+    grid-column: 1; text-align: center;
+  }
+}
+
+.folio { padding-bottom: 8px; }
+.dateline { border-bottom: 3px double var(--ink); padding: 7px 0; color: var(--ink-2); }
+
+/* --- columns ---------------------------------------------------------- */
+
+.fold { display: grid; grid-template-columns: repeat(12, 1fr); border-bottom: 3px double var(--ink); }
+.col { padding: 20px; border-left: 1px solid var(--rule); }
+.col:first-child { padding-left: 0; border-left: 0; }
+.col:last-child { padding-right: 0; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; }
+.span-8 { grid-column: span 8; }
+.span-12 { grid-column: span 12; }
+
+.band { border-bottom: 1px solid var(--ink); padding: 22px 0 26px; }
+.band-head {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+  border-bottom: 1px solid var(--ink); padding-bottom: 6px;
+}
+.band-head h2 { font-size: 1.05rem; letter-spacing: .2em; text-transform: uppercase; }
+.cols2 { display: grid; grid-template-columns: repeat(2, 1fr); }
+.cols3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+.cols4 { display: grid; grid-template-columns: repeat(4, 1fr); }
+.cell { padding: 0 18px; border-left: 1px solid var(--rule-soft); display: flex; flex-direction: column; gap: 9px; }
+.cell:first-child { padding-left: 0; border-left: 0; }
+.cell:last-child { padding-right: 0; }
+
+/* --- stories ---------------------------------------------------------- */
+
+.story { display: flex; flex-direction: column; gap: 9px; }
+.story + .story { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--rule-soft); }
+.story p { font-size: .925rem; line-height: 1.52; hyphens: auto; }
+.story p.first::first-letter {
+  float: left; font-family: var(--serif); font-weight: 700; font-size: 3.1em;
+  line-height: .79; padding: .05em .09em 0 0; color: var(--accent);
+}
+
+/* --- art -------------------------------------------------------------- */
+
+figure { margin: 0; display: flex; flex-direction: column; gap: 7px; }
+figure img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); background: var(--paper-2); }
+figcaption { font-style: italic; font-size: .82rem; line-height: 1.4; color: var(--ink-2); }
+figcaption .credit {
+  font-family: var(--util); font-style: normal; font-size: .7rem;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3);
+  display: block; margin-top: 4px;
+}
+
+/* --- boxes ------------------------------------------------------------ */
+
+.box {
+  border: 1px solid var(--ink); padding: 14px 15px; background: var(--paper-2);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.box-head {
+  font-family: var(--util); font-size: .72rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; border-bottom: 1px solid var(--ink); padding-bottom: 7px;
+}
+.wire-item { padding: 11px 0; border-bottom: 1px dotted var(--rule); }
+.wire-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.wire-item p { font-size: .85rem; line-height: 1.45; color: var(--ink-2); }
+
+blockquote { margin: 0; font-family: var(--serif); font-size: 1.22rem; line-height: 1.24; }
+q { quotes: "“" "”"; }
+
+/* Reverse panel — for the one thing on the page that should stop the reader.
+ *
+ * IT IS DARK IN BOTH THEMES, which is why it gets its own accent. `--spot` is
+ * tuned against the PAGE's ground, so in the light theme it is a deep red for
+ * cream paper — and printing that on the reverse panel's near-black put the
+ * kicker at 2.45:1, on every story that had one. Measured, not noticed: it
+ * reads as "small red caps" until you check it. */
+.reverse { background: var(--reverse-bg); color: var(--reverse-ink); padding: 26px; }
+.reverse h2, .reverse h3 { color: var(--reverse-ink); }
+.reverse .dek, .reverse .byline { color: var(--reverse-ink-2); }
+.reverse .kicker { color: var(--reverse-spot); }
+
+/* --- data ------------------------------------------------------------- */
+
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px dotted var(--rule); font-size: .83rem; }
+th {
+  font-family: var(--util); font-size: .7rem; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-3); border-bottom: 1px solid var(--ink);
+}
+td.num { text-align: right; padding-right: 0; font-family: var(--mono); font-size: .78rem; }
+
+/* --- responsive ------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .span-3, .span-4, .span-5 { grid-column: span 6; }
+  .cols4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .sheet { padding: 14px 15px 56px; }
+  .fold { display: flex; flex-direction: column; }
+  .col { padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--rule); }
+  .col:last-child { border-bottom: 0; }
+  .cols2, .cols3, .cols4 { display: flex; flex-direction: column; }
+  .cell { padding: 16px 0; border-left: 0; border-top: 1px solid var(--rule-soft); }
+  .cell:first-child { border-top: 0; padding-top: 0; }
+  .reverse { padding: 20px 16px; }
+}
+
+/* House overrides — EZ's standing preference, appended after house.css.
+ *
+ * Quotations are marked and set in italic. Inline <q> already takes its marks
+ * from the house `quotes` property; a <blockquote> does not, so it gets them
+ * explicitly here. Kept in this file rather than edited into house.css, which
+ * is generated upstream and would lose the change on the next sync-skill run.
+ */
+
+q { font-style: italic; }
+
+blockquote {
+  font-style: italic;
+  quotes: "\201C" "\201D";
+}
+blockquote::before { content: open-quote; }
+blockquote::after  { content: close-quote; }
+
+/* Where the surrounding text is already italic — deks, editor's notes, picture
+ * captions — quoted matter goes upright instead. That is the usual convention,
+ * and without it a quotation inside a caption is invisible as a quotation. */
+.dek q, .note q, figcaption q { font-style: normal; }
+
+/* Site furniture — a way back to the archive.
+ *
+ * Added after validate.mjs runs, because the edition's own link rule permits
+ * only njump.me event links and resolve.mjs unwraps everything else. This is
+ * not part of the paper; it is the same class of thing as the index page.
+ *
+ * `.sheet` is a flex column and the house sheet pins `.folio` to `order: -1`,
+ * so the top link needs -2 to sit above it. The foot copy keeps source order.
+ */
+.backlink {
+  order: -2;
+  display: flex; align-items: baseline; gap: 16px;
+  font-family: var(--util); font-size: .7rem; letter-spacing: .13em;
+  text-transform: uppercase; padding-bottom: 10px;
+}
+.backlink a { color: var(--ink-3); border-bottom: 0; }
+.backlink a:hover { color: var(--accent); }
+/* A separator drawn rather than typed, so the markup stays two plain links. */
+.backlink a + a::before {
+  content: "·"; margin-right: 16px; color: var(--rule);
+}
+.backlink.foot {
+  order: 0; border-top: 1px solid var(--rule);
+  padding-top: 18px; padding-bottom: 0; margin-top: 10px;
+}
+
+/* Source links — the one link the paper is permitted to make.
+ *
+ * Every quotation wraps in a permalink to the note it came from, added by
+ * tools/link-sources.mjs BEFORE validate.mjs runs, so the validator proves
+ * each one points at an event actually read that day. Kept quiet: a dotted
+ * rule under inline quotes, nothing under a pulled blockquote, accent on
+ * hover. The hex lives in the href and never in the prose.
+ */
+a.src { border-bottom: 0; color: inherit; }
+a.src:has(blockquote) { display: block; }
+a.src q { border-bottom: 1px dotted var(--rule); }
+a.src:hover, a.src:hover q, a.src:hover blockquote { color: var(--accent); }
+a.src:hover q { border-bottom-color: var(--accent); }
+
+/* A picture credit that links back to the note the photograph came with. */
+figcaption .credit a.src { border-bottom: 1px dotted var(--rule); }
+figcaption .credit a.src:hover { border-bottom-color: var(--accent); }
+
+/* The reader's own name in the dateline, linked to their profile.
+ * Takes the accent — the colour this paper already uses for kickers and for
+ * "this points somewhere" — because a rule in --rule is invisible on the dark
+ * ground, and this is the one link on the page meant to be found by strangers. */
+.dateline a.src { color: var(--accent); border-bottom: 1px dotted var(--accent); }
+.dateline a.src:hover { border-bottom-style: solid; }
+
+/* Authored links in prose — the verb after an attribution, or an account
+ * mention. Same quiet treatment as a quotation link. Unlike `.src` these are
+ * written by hand and no tool regenerates them. */
+a.ref { border-bottom: 1px dotted var(--rule); color: inherit; }
+a.ref:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* --- repairs: house primitives the markup misses ---------------------- */
+
+/* `.band` was never a grid.
+ *
+ * house.css hands `.col` and `.span-*` to `.fold` alone, so a band composed as
+ * `.col span-8` + `.col span-4` fell back to `display: block` twice over: the
+ * story ran the full 1196px sheet at 112-129 characters a line, the sidebar
+ * stacked underneath it instead of beside it, and the second column's
+ * `border-left` -- written as a column separator -- drew a 260px vertical
+ * hairline at the left margin with nothing to its left. The span-8/span-4 and
+ * span-6/span-6 layouts had never rendered on any edition. Every band before
+ * 2026-09-15 used `.colsN`, which are real grids, so only the fold primitives
+ * were ever broken this way -- and this file is the right place to fix it,
+ * because house.css is generated upstream and loses the change on sync.
+ *
+ * Children that are not `.col` (`.band-head`, `.cols2/3/4`) must be told to
+ * span, or a `.cols3` would be auto-placed into one track of twelve. */
+.band { display: grid; grid-template-columns: repeat(12, 1fr); }
+.band > :not(.col) { grid-column: 1 / -1; }
+/* `:first-of-type`, not `:first-child`: a band that leads with a `.band-head`
+   puts a <p> before the columns, and `:first-child` would then leave the
+   first column indented 20px behind a rule. */
+.band > .col:first-of-type { padding-left: 0; border-left: 0; }
+.band > .col:last-of-type { padding-right: 0; }
+
+/* Below 1000px the fold's `span-4 -> span-6` rebalance (house.css) would make
+ * an 8+4 band fourteen tracks wide and scroll the page sideways, so bands go
+ * back to a single column here -- which is what they rendered as everywhere
+ * before this repair anyway, so nothing below 1000px changes. */
+@media (max-width: 1000px) {
+  .band { display: block; }
+}
+
+/* The small type inside `.story` was sized by the wrong rule.
+ *
+ * `.story p` is (0,1,1); `.kicker`, `.byline`, `.dek` and `.note` are all
+ * (0,1,0). Every one of them lost on font-size and line-height while keeping
+ * its colour, family, tracking and uppercase -- so the page was not visibly
+ * broken, it was flat. Measured on the 2026-09-15 edition: kicker and byline
+ * 14.8px against an intended 11.5; the dek 14.8px against 15.2, i.e. the same
+ * size as body copy, which is the one sentence after a headline most readers
+ * actually read; every footnote at 14.8/22.5 against an intended 12.8/18.6.
+ * One text size for the whole paper, separated by colour alone.
+ *
+ * Scoped to `.story p.*` rather than respecified at `.story p`, so house.css
+ * keeps its own rule and this reads as an override of it. */
+.story p.kicker, .story p.byline { font-size: .72rem; }
+.story p.dek  { font-size: .95rem; line-height: 1.45; }
+.story p.note { font-size: .8rem;  line-height: 1.45; }
+
+/* `.band-head h2` never matched.
+ *
+ * It carries the letterspaced uppercase section-rule treatment, but the writer
+ * emits `<p class="band-head">` with no <h2> inside, so that rule has never
+ * applied on any edition: measured `letter-spacing: normal; text-transform:
+ * none` on a plain 16px Georgia line. The treatment goes on `.band-head`
+ * itself so it holds whether or not a writer puts an <h2> inside later -- the
+ * descendant rule in house.css then simply re-states the same values. */
+.band-head { font-size: 1.05rem; letter-spacing: .2em; text-transform: uppercase; }
+
+/* A broad lead has room for a headline, but its prose still needs a short
+ * measure. These opt-in classes support the asymmetric September 17 edition. */
+.lead-story > .lead-head { font-size: clamp(2.2rem, 5.2vw, 3.8rem); line-height: 1.02; }
+.lead-story > .dek { max-width: 65ch; margin-bottom: 9px; }
+.lead-story > .byline { margin-bottom: 9px; }
+.lead-copy { columns: 2; column-gap: 26px; column-rule: 1px solid var(--rule-soft); }
+.lead-copy p { margin-bottom: 12px; orphans: 3; widows: 3; }
+.lead-copy p:last-child { margin-bottom: 0; }
+.edition-sidebar { display: flex; flex-direction: column; gap: 22px; }
+.edition-sidebar .box { margin-top: auto; }
+.desk-meta { display: block; font-size: .78rem; font-style: italic; color: var(--ink-3); margin: 4px 0; }
+.picture-row img { aspect-ratio: 4 / 3; object-fit: cover; }
+/* Portrait rows can keep tall subjects intact while retaining a shared baseline. */
+.picture-row.portraits img { aspect-ratio: 4 / 5; }
+.picture-row h3 { margin-bottom: 5px; }
+/* Equal image widths keep the crops on one baseline; the ordinary cell
+ * padding gives the middle photograph less room than the outer two. */
+@media (min-width: 721px) {
+  .picture-row .cols3 { column-gap: 24px; }
+  .picture-row .cell { padding: 0; border-left: 0; }
+}
+
+/* The house breakpoint turns span-4 into span-6. Keep an 8/4 fold from
+ * wrapping into an incomplete second row, and remove its now-stray rules. */
+@media (min-width: 721px) and (max-width: 1000px) {
+  .fold:has(> .span-8) > .col { grid-column: 1 / -1; padding: 20px 0; border-left: 0; }
+  .fold:has(> .span-8) > .col + .col { border-top: 1px solid var(--rule); }
+  .edition-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .edition-sidebar .box { margin-top: 0; align-self: start; }
+  .cols4 > .cell:nth-child(3) { border-left: 0; padding-left: 0; }
+  .cols4 > .cell:nth-child(2) { padding-right: 0; }
+  .cols4 { row-gap: 22px; }
+}
+@media (max-width: 720px) {
+  .lead-copy { columns: 1; }
+}
+@media (max-width: 430px) {
+  .folio { grid-template-columns: 1fr; text-align: center; }
+  .folio > span, .folio > :nth-child(3) { text-align: center; }
+}
+
+</style>
+</head>
+<body>
+<!-- restyle: an 8/4 fold carries a prison letter at length beside the fundraiser answering it; a reverse panel gathers the day's argument about machines doing the work. -->
+<div class="sheet">
+  <nav class="backlink"><a href="index.html">&larr; All editions</a><a href="feed.xml">RSS</a></nav>
+
+  <div class="folio"><span>No. 620A66</span><span>Saturday, October 3, 2026</span><span>24h to 19:18</span></div>
+  <header class="masthead"><h1>The Nostr Observer</h1><p class="motto">Printed from one corner of the network</p></header>
+  <div class="dateline"><span>Ranked as <a class="src" href="https://njump.me/npub1s07s0h5mwcenfnyagme8shp9trnv964lulgvdmppgenuhtk9p4rsueuk63">EZ</a></span><span>610 events through your lens</span><span>232 voices</span></div>
+
+  <div class="fold">
+    <div class="col span-8">
+      <article class="story lead-story">
+        <p class="kicker">Letter №7 · Notes from the inside</p>
+        <h2 class="lead-head">Thirty days, two flights, and a cellmate called Shadow</h2>
+        <p class="dek">The Ungovernable network spent yesterday evening and today publishing the seventh letter from Keonne Rodriguez, written from federal custody. It is an account of being moved between two prisons four hours apart — and of what the journey cost.</p>
+        <p class="byline">Published in three parts by Ungovernable</p>
+        <div class="lead-copy">
+          <p class="first">The distance was four hours by road. The transfer took thirty days, two transcontinental flights and three multi-hour bus rides, and it ended with Rodriguez summing up his accommodation along the way in four words. One cellmate was serving time for murder. The other, the account notes, could not stop shitting. <a class="src" href="https://njump.me/5553b2ec906c718b3fcfdcbe5a910b3252eca9ff0f33a721bdf9b228aea76cf2"><q>I preferred the murder.</q></a></p>
+          <p>In Oklahoma City the cellmate introduced himself as Shadow. He was on his way to a penitentiary to serve twenty years. Rodriguez was on his way to a camp, in his own description, <a class="src" href="https://njump.me/2bd572a00e18dfdbc507db7aa8820d133458708819ca47984c500f6405cc03cd"><q>for the fake crime of not having a license I didn't even need in the first place.</q></a> The Bureau of Prisons put them in the same cell.</p>
+          <p>The full letter runs at ungovernable.network, under shows/specials/letter-7-notes-from-the-inside. Each of the three posts carries a video telling of the same passage, which the paper cannot play and has not watched.</p>
+          <p>What the letter does not do is argue. There is no paragraph about open-source software, no claim about financial privacy, nothing about the case. It is a man describing a bus, a sheet, and a telephone he cannot reach — which is a more effective piece of advocacy than the argument would have been, and is presumably why it was published this way.</p>
+          <p>The last instalment, posted this afternoon, is the quietest and the worst. It is eleven at night and Rodriguez has asked his cellmate what time they turn the lights off. They don't.</p>
+          <a class="src" href="https://njump.me/6cd50ec0b58034fa54081c5ff1229133c708d2d4a7e73be6d99cf4da8ad75a0e"><blockquote>He covers his head with a sheet that smells of motor oil and sawdust, lies with half his body on bare metal, and asks himself if a year off his sentence was worth leaving Morgantown. … All he wants is to call his wife, Lauren.</blockquote></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="col span-4">
+      <div class="edition-sidebar">
+        <article class="story">
+          <p class="kicker">The answer to it</p>
+          <h3 class="sub-head">A prison run, settled inside a coinjoin</h3>
+          <p>Kevin Ravensberg confirmed this morning that the #FreeSamourai Prison Run has paid out to the billandkeonne.org fundraiser — the donation made, as he put it, <a class="src" href="https://njump.me/5057ec749fcc8c9ee1cbe34e72182e44b8f74d82ff436033456ced1605d68bbc"><q>of course inside a coinjoin</q></a>, with the transaction posted for anyone who wants to check it.</p>
+          <p>His note describes the beneficiaries as <a class="src" href="https://njump.me/5057ec749fcc8c9ee1cbe34e72182e44b8f74d82ff436033456ced1605d68bbc"><q>two bitcoin wallet developers that are still unjustly detained for writing open source code to help you protect your onchain privacy</q></a>. Donations remain open at billandkeonne.org.</p>
+          <p class="note">The paper prints that address; it does not link it. Verify a fundraiser before you fund it.</p>
+        </article>
+
+        <div class="box">
+          <p class="box-head">The day in numbers</p>
+          <div class="tablewrap">
+            <table>
+              <tr><th>As posted</th><th class="num">USD</th></tr>
+              <tr><td>Bitcoin</td><td class="num">84,604.92</td></tr>
+              <tr><td>200-day average</td><td class="num">71,425.98</td></tr>
+              <tr><td>Realized price</td><td class="num">53,659</td></tr>
+              <tr><td>Power-law trend</td><td class="num">142,076</td></tr>
+            </table>
+          </div>
+          <p class="note">ChartsBTC put the Mayer multiple at 1.18 and MVRV at 1.57. A year ago today the price was 122,308 — a one-year multiple of 0.69.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <p class="band-head">Two anniversaries</p>
+    <div class="cols2">
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">Kyiv</p>
+          <h3 class="main-head">A walk past the Academy of Sciences</h3>
+          <figure>
+            <img src="https://npub1yaul8k059377u9lsu67de7y637w4jtgeuwcmh5n7788l6xnlnrgs3tvjmf.blossom.band/2ce21090b227e33b6a6e8a34345b40535485f63c1bc6fcb93c6153649d2c9196.jpg" alt="Photograph filed by Terry Yiu with his note about walking past the attack site at the Ukrainian National Academy of Sciences.">
+            <figcaption>One of three frames Terry Yiu filed with a note saying he had walked past the attack site at the Національна академія наук України — the Ukrainian National Academy of Sciences — and photographed the destruction in the aftermath.<span class="credit"><a class="src" href="https://njump.me/000008f799cc7ad3b10bfee0d3196ebb6a1e3eb4995ee65f61230ce56fe67876">Photograph: Terry Yiu</a></span></figcaption>
+          </figure>
+          <p>Yiu describes the encounter as coincidental: he was passing, and he stopped to take pictures. There is no commentary attached to the three photographs, and the paper is not going to supply any. He filed them yesterday afternoon.</p>
+          <p class="note">Yiu's dispatches from Kyiv also led this paper on September 29.</p>
+        </article>
+      </div>
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">Tag der Deutschen Einheit</p>
+          <h3 class="main-head">A border that stopped existing, and the marriage that needed it to</h3>
+          <p>German Unity Day fell today, and the most persuasive thing anyone wrote about it was not political. Dreiberge moved to Mecklenburg-Vorpommern more than twenty years ago, fell for the eastern part of the country, and then for an East German man.</p>
+          <a class="src" href="https://njump.me/3e505619ad11cb5c8f752e6c6bd2e37820b77a07662a78a14e39c6153efd8f0e"><blockquote>If Germany were still divided, my husband and I would never have met, and this beautiful part of Germany would never have become my home by choice.</blockquote></a>
+          <p>Elsewhere on the same anniversary, Georg Ohrweh published a considerably sourer essay arguing that the Federal Republic has managed to run two forms of government side by side since the GDR's accession — a long piece in German, filed under the title <em>Vulgär-Demokratie und Unseredemokratie</em>.</p>
+          <p>Dreiberge spent the rest of the day picking rose hips for a door wreath and reported the cost of it: <a class="src" href="https://njump.me/85a212814cb6b5e0dca0f52041004e4f6b6373a1954d6a550b1c756f0b97f027"><q>My fingers are completely covered in tiny pricks, and I still need to pick more rose hips on my next walk.</q></a></p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="band reverse">
+    <p class="kicker">Sloptober</p>
+    <h2 class="main-head">The machines did a lot of the work today, and the humans kept the last signature</h2>
+    <div class="cols3" style="margin-top:18px">
+      <div class="cell">
+        <p>Brad Mills named the month — <a class="src" href="https://njump.me/5e78e81571ed060ff0ed9a3e62cb55b13f2e381831dc8c3863b34cdd49b571b5"><q>It's SLOPTOBER</q></a> — and royster⚡️ supplied the review, calling something that crossed the timeline <a class="src" href="https://njump.me/a495750a533967f15251189b7a3d7758ae744c268d7096d2a465ae11bb60e450"><q>This is some seriously quality slop</q></a>. The same royster asked, flatly, <a class="src" href="https://njump.me/495713d1f87c647edfdec70accd2150b2fac655d58f57dbc0aa4f2aa5005ccdb"><q>What is Jev</q></a>, on a day Vercel News published a primer explaining that Jev is a model you feed data and ask multiple-choice questions, which answers with its confidence attached.</p>
+      </div>
+      <div class="cell">
+        <p>The serious version of the argument came from Nathan Day, interviewed by Ungovernable, on why twenty years of Linux annoyances have aged unexpectedly well: <a class="src" href="https://njump.me/f8eae9690e63231ff724a16f4139b804fcba738bd30d08aa397c7255c2fec3ba"><q>What used to be its Achilles heel, which is a load of text based config files and CLIs, has now, in an agentic age, become its superpower, because agents can just drive Linux.</q></a> Plain text and verbose logs turn out to be a grip.</p>
+        <p>hodlbod shipped the tooling for exactly that, publishing pi-nostr and noting that running an agent which speaks the protocol <a class="src" href="https://njump.me/e0ae8dcdd33e2eee9319bb75fa707d965fc9ee517bddf86909991a13ca50144e"><q>is now a single command</q></a>.</p>
+      </div>
+      <div class="cell">
+        <p>Mostro went the other way on purpose. Its node release registers Serbero, an AI dispute assistant that can guide a user and flag a case — but <a class="src" href="https://njump.me/ec38c2fdca8ea43d027246aebbc3fe746346adef15372d0e651b8a40b943b443"><q>the resolution is always made by a human</q></a>. The companion release was blunter still about how little is switched on: <a class="src" href="https://njump.me/d60668882616562cf1b4f4234f6e37418920835d4a5140304c009ed3a5c0a79a"><q>Mediation itself is still off, this is infrastructure work.</q></a></p>
+        <p>WendyDing, reading a report of roughly 950 Claude agents and some ten thousand concurrent OpenAI ones turned loose on DNA data, landed on the part nobody quotes: <a class="src" href="https://njump.me/a501a5db9a383a02b78b8822f9c2b9e66ce93ff83580e0ea799c4ac98c90d04b"><q>The numbers are striking, but the more interesting story is how their work was organized and checked.</q></a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <p class="band-head">The workshop</p>
+    <div class="cols3">
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">Flotilla 1.12.0</p>
+          <h3 class="small-head">Notifications arrive, and the author defects to his own app</h3>
+          <p>hodlbod's release adds social features and notifications, screen sharing in calls on every platform, a member map, voice notes and a nature theme. The telling line is the author's own verdict on his two clients: <a class="src" href="https://njump.me/7a7fa7ffe5f4658e07d19b55e6e4b6e46134c0e1f532de1455dc768e4736e344"><q>Flotilla might just become my new daily driver, replacing Coracle.</q></a></p>
+        </article>
+      </div>
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">LN-GAP</p>
+          <h3 class="small-head">Chess, blackjack, and contracts inside a channel</h3>
+          <p>waxwing published a project to <a class="src" href="https://njump.me/156e582cd67319b9887800dd9e8134f68bf5193765ab47ece15aa8f671d865b4"><q>Play multi-move games or arbitrarily complex contracts in Lightning channels.</q></a> Settlement is trustless against the counterparty; a venue is trusted only to publish moves on time, never to hold funds. <a class="src" href="https://njump.me/156e582cd67319b9887800dd9e8134f68bf5193765ab47ece15aa8f671d865b4"><q>You can pretty easily run the chess or blackjack examples in the browser.</q></a></p>
+        </article>
+      </div>
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">Housekeeping</p>
+          <h3 class="small-head">A relay rewrites its doorman</h3>
+          <p>The operator of nostr.mom reported replacing years of hand-tuned write policy with generated code, and published the thresholds: fifty concurrent connections per address, two hundred requests a second. Nostr.build launched a GIF search over its own uploads, adding that <a class="src" href="https://njump.me/301cef752a09197e882d1fedd4ed6104b49876898a870d9cfff44f4ed9b593b9"><q>We only share our free uploads. Account uploads remain private!</q></a></p>
+          <p>fiatjaf, separately and without elaboration: <a class="src" href="https://njump.me/0a252950f7ec69fa9c3e5bf7b13b16adf5730cba0fd006ec9528a63682d95175"><q>Developers should stop trying to address Nostr as if it was a single community. That is not working.</q></a></p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="band picture-row">
+    <p class="band-head">From the picture desk</p>
+    <div class="cols3">
+      <div class="cell">
+        <figure>
+          <img src="https://blossom.daniel.camera/b612a45189121294e571a163840987ce72af488b0f292e59ef1d189e3b13c8b8.jpg" alt="A Quick Morning Hike in Rush">
+          <figcaption>danielw posted a frame from the Rush Historic District in Arkansas, captured on October 6, 2016, and gave it the only caption on today's shortlist written by the photographer: a quick morning hike in Rush.<span class="credit"><a class="src" href="https://njump.me/99dcbe6184fc21dfea1be4bd2d25045250a1eef19c51babf28ead52021d08dcc">Photograph: danielw</a></span></figcaption>
+        </figure>
+      </div>
+      <div class="cell">
+        <figure>
+          <img src="https://i.nostr.build/DnxTWOkRa2czymqHXcsepY.jpg" alt="Photograph filed by Leo with a note about the complimentary snacks served on train G11 from Beijing to Shanghai.">
+          <figcaption>Leo files the complimentary snacks on train G11, Beijing to Shanghai, and rates them somewhat edible — better, he writes, than what the onboard bistro sells. Ordering is expected through an app, though walking to the counter with cash still works.<span class="credit"><a class="src" href="https://njump.me/f337e21c2484d7d08dd3f0ba4bca50f1195049d8e113fc7e9395bda0bd1ca784">Photograph: Leo</a></span></figcaption>
+        </figure>
+      </div>
+      <div class="cell">
+        <figure>
+          <img src="https://image.nostr.build/626aa88a1624093033389658883e561cb4ce41817f51eb33cc05e245e65bcbb6.jpg" alt="Photograph filed by muneomi with a note about shooting in Shibuya.">
+          <figcaption>muneomi filed this with a two-word note: shooting in Shibuya. It was one of forty-five pictures that reached the desk today, and among the few that arrived without an argument attached.<span class="credit"><a class="src" href="https://njump.me/2d7a9f2773dac3993460621c65147a0a5e19932d6179c22cf28bc962a63e9740">Photograph: muneomi</a></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="cols3">
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">In brief</p>
+          <h3 class="small-head">An 1887 hall, and its new chair</h3>
+          <p>Rusty Russell took a history dive into the South Australian community theatre he now chairs: built in 1887 under the Institute Movement, which put libraries and reading rooms in 196 towns by 1900 and peaked at 306 by 1930. The last Institute closed in 1989. His conclusion is a mission statement — <a class="src" href="https://njump.me/a2cc3387acc635cbb6ac0b3418cb127dd0909ddf8275ca4e90fdde52efa49055"><q>Places like this only thrive when there's a community around them: and generally people find it gives them far more than it takes.</q></a> — followed immediately by <a class="src" href="https://njump.me/a2cc3387acc635cbb6ac0b3418cb127dd0909ddf8275ca4e90fdde52efa49055"><q>After we fix the plumbing!</q></a></p>
+        </article>
+        <article class="story">
+          <h3 class="small-head">Elsewhere</h3>
+          <p>The EFF reported a win: <a class="src" href="https://njump.me/3bbe25d278a37b7d970b7fdfb0c4be2f9778496ffc1bce101e9da4112b79c6d0"><q>VICTORY: A lawsuit seeking to end the Trump administration's social media surveillance program will move forward.</q></a> Arthur Amendt noted that the difficulty adjustment at block 969,696 was among the smallest in Bitcoin's history, at +0.031%. Fr. Josh Miller found a one-sat zap on a note and took it as a vital sign: <a class="src" href="https://njump.me/1cd19252f3e23a8445701fdbef606f507159c73fc84cc895440aec3df73b354e"><q>The fact that someone found it in their heart to zap this 1 sat</q></a>.</p>
+        </article>
+      </div>
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">The market</p>
+          <h3 class="small-head">Ahead of gold, behind itself</h3>
+          <p>Juan Cienfuegos marked bitcoin passing gold for the year: one coin bought 12.1 ounces on March 2 and buys 20.4 now, a 68% gain against the metal in seven months. Year to date, though, both are down — bitcoin 3.5%, gold 4.2% — which he concedes is <a class="src" href="https://njump.me/6f133e599515245595bd18373a84941ed42f02cf724def8b2c2498f45c00e385"><q>A lead of less than a point, so the race is wide open.</q></a></p>
+          <p>Nostrmag's weekly, written by NewYork, framed the same week as a gap between forecast and tape: <a class="src" href="https://njump.me/3b8caf38827e9dcdc8f977c729bfc1534e08936ef5cd249b6ea9a986cbbd7017"><q>Wall Street is raising its long-term target while the market struggles to hold a short-term breakout.</q></a> ChartsBTC's own series put the price 40.52% below its power-law trend, and 570 days behind it.</p>
+        </article>
+        <article class="story">
+          <h3 class="small-head">The exchange</h3>
+          <p>Two listings reached the classifieds desk. One is titled <a class="src" href="https://njump.me/a501a5db9a383a02b78b8822f9c2b9e66ce93ff83580e0ea799c4ac98c90d04b"><q>Test</q></a>, priced at zero dollars, filed from Dallas. The other is a question about why Primal will not let its author post. The market was shut today.</p>
+        </article>
+      </div>
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">On the calendar</p>
+          <h3 class="small-head">Dates posted today</h3>
+          <p>Two BitcoinWalks were set for today itself — Barcelona at 11:00 from the sea garden at Moll de la Barceloneta, Munich at 13:00 from the Isartreppen by the Reichenbachbrücke. Ahead: the Muslim Bitcoin Summit in London, October 10–11; a Santa Cruz meetup at the Paystand office on October 8; Les Femmes Orange in Berlin on October 25; Socratic Seminar 76 at Stanford on November 5; and Bitfest at the Pendulum Hotel, Manchester, on November 19.</p>
+          <p>Scoresby will be at the Lone Star Zine Fest in Austin on October 10, with the Stacker News Zine — more than 73 issues in eighteen months.</p>
+        </article>
+        <article class="story">
+          <p class="kicker">On air at the close</p>
+          <h3 class="small-head">Still running at 19:18</h3>
+          <p>Synthdragon Radio had both channels up since October 1 — CHILL playing Glaciella's <a class="src" href="https://njump.me/199f97fb757ec04123c770f4a40b9af6a493849b7052849ae2b1d0a9bca7e501"><q>Light From a Lost Heart</q></a>, FIERCE on Crimson Racer's <a class="src" href="https://njump.me/9986be6ac00f13e1fb2e99560ac9b7e944502c2f3704652b3f3ebf55cc24ba34"><q>Dawn Drive</q></a>. NoGood Radio, whose listing claims a 24-hour pirate station assembled from scrap parts in an unnamed basement, has been live since February 2025. Noderunners Radio reported 354 songs today, six of them requested and paid for by listeners.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="cols2">
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">The Instrument</p>
+          <h3 class="main-head">400 notes. Nothing in common.</h3>
+          <p>Every edition is measured against the same window read with no lens at all. Today the unranked read returned 400 notes, and the overlap with everything above was zero — not one post in common.</p>
+          <p class="note">Your 610 events came from 232 voices, all of them inside the 24 hours to 19:18.</p>
+        </article>
+      </div>
+      <div class="cell">
+        <article class="story">
+          <p class="kicker">And finally</p>
+          <h3 class="main-head">The condiment desk</h3>
+          <p>Annie☕ reports a discovery made from someone else, offered here without testing: <a class="src" href="https://njump.me/de1c849bd7f57dd2df6b71150c321a1c5f6d241e90337fe6f51448cd09507ec6"><q>If you mix ketchup with soy sauce, it actually tastes good.</q></a> The ratio is a teaspoon of soy to a tablespoon of ketchup, and it is said to work on chips.</p>
+          <p>From Germany, SimOne supplies the week's most efficient summary of two economies: <a class="src" href="https://njump.me/7e484acd4c847e7bc39d59d5a52cbd7f9214b0485cf28cb19d1e158ec175fc7d"><q>In Germany diesel is €2.40 per litre.</q></a> Beer, in a pub, is €4.50.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <nav class="backlink foot"><a href="index.html">&larr; All editions</a><a href="feed.xml">RSS</a></nav>
+</div>
+
+</body>
+</html>
