@@ -6,7 +6,14 @@
   <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
   <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 04 Oct 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 05 Oct 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Monday, October 5, 2026 — 234 more merchants. Fewer freshly checked.</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-10-05-2EF3E4.html</link>
+    <guid isPermaLink="false">nostr-observer-2EF3E4</guid>
+    <pubDate>Mon, 05 Oct 2026 12:00:00 GMT</pubDate>
+    <description>The map keeps growing. Keeping its pins trustworthy is the slower job: the average merchant listing is now 457 days past its last check.</description>
+  </item>
   <item>
     <title>Sunday, October 4, 2026 — Blink says customers are repaid after 6.61 BTC theft</title>
     <link>https://eimze.github.io/nostr-observer-editions/observer-2026-10-04-FE0C23.html</link>
