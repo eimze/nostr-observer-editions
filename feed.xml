@@ -6,7 +6,14 @@
   <atom:link href="https://eimze.github.io/nostr-observer-editions/feed.xml" rel="self" type="application/rss+xml" />
   <description>A daily front page printed from twenty-four hours of Nostr, ranked through one reader's own web of trust.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 07 Oct 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 08 Oct 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Thursday, October 8, 2026 — The relay banned its own operator</title>
+    <link>https://eimze.github.io/nostr-observer-editions/observer-2026-10-08-CEC2B3.html</link>
+    <guid isPermaLink="false">nostr-observer-CEC2B3</guid>
+    <pubDate>Thu, 08 Oct 2026 12:00:00 GMT</pubDate>
+    <description>A nos.lol operator traces a traffic ban back to their own phone. The ensuing discussion asks how much work a client makes a relay do.</description>
+  </item>
   <item>
     <title>Wednesday, October 7, 2026 — 20 relays meet a 16-relay limit</title>
     <link>https://eimze.github.io/nostr-observer-editions/observer-2026-10-07-C90D37.html</link>
